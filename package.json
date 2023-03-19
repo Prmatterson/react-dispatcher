@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "create-next-app": "^13.2.4",
+    "nodemon": "^2.0.21"
+  }
+}
