@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "create-next-app": "^13.2.4",
+    "node.js": "^0.0.1-security",
     "nodemon": "^2.0.21"
   }
 }
