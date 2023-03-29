@@ -3,7 +3,7 @@ import GridFramework from './components/GridFramework'
 
 export default function App() {
   return (
-    <div className="App">
+    <div id="App">
       <GridFramework />
     </div>
   );
