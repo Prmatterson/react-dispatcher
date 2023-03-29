@@ -1,4 +1,3 @@
-import './App.css';
 import GridFramework from './components/GridFramework'
 
 export default function App() {
