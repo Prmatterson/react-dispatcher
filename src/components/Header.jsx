@@ -1,4 +1,6 @@
 import React from "react";
+import 'bulma/css/bulma.min.css';
+import { Heading } from 'react-bulma-components';
 
 export default function Header() {
   return (
