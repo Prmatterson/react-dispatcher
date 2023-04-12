@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import TechGrid from "./components/TechGrid";
+import TechGridBody from "./components/TechGridBody";
 import TimeIntervals from "./components/TimeIntervals";
 import React from "react";
 import { Tile } from "react-bulma-components";
@@ -18,7 +18,7 @@ export default function App() {
           <Tile kind="parent" size={11}>
             <Tile kind="child">
               <Tile>
-                <TechGrid />
+                <TechGridBody />
               </Tile>
             </Tile>
           </Tile>

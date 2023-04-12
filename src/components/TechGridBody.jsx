@@ -1,16 +1,13 @@
 import React from "react";
 import 'bulma/css/bulma.min.css';
-import { Table } from "react-bulma-components";
 
-export default function TechGrid() {
+export default function TechGridBody() {
 
-  let techs = ["Tech 1", "Tech 2"]
+  let techs = ["Tech 1", "Tech 2", "Tech 3"]
 
   return (
     <>
-        <Table>
           Insert nested for loops here to make grid
-        </Table>
     </>
   );
 }
