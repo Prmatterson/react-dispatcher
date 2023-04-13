@@ -3,7 +3,7 @@ import 'bulma/css/bulma.min.css';
 
 export default function TechGridBody() {
 
-  let techs = ["Tech 1", "Tech 2", "Tech 3"]
+  let techList = ["Tech 1", "Tech 2", "Tech 3"]
 
   return (
     <>
