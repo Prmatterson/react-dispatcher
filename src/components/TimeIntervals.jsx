@@ -1,5 +1,5 @@
 import React from "react";
-import { Content, Tile, Columns } from 'react-bulma-components'
+import { Content, Columns } from 'react-bulma-components'
 
 export default function TimeIntervals() {
 
@@ -12,19 +12,9 @@ export default function TimeIntervals() {
 
   return (
     <>
-      <Tile kind="ancestor">
-        <Tile kind="parent" vertical>
           <Columns vertical size={1}>
             <Content>{cells}</Content> 
           </Columns>
-          <Tile kind='child'>
-            Test
-          </Tile>
-          <Tile kind='child'>
-            Test 2
-          </Tile>
-        </Tile>
-      </Tile>
     </>
   );
 }
