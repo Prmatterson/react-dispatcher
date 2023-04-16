@@ -9,7 +9,7 @@ export default function TimeIntervals() {
   for (let i = 8.2; i < cellsLimit; i += 0.1) {
     cells.push(i.toFixed(1))
   }
-
+  // output = array[0].map((_, colIndex) => array.map(row => row[colIndex]));
   return (
     <>
           <Columns vertical size={1}>
