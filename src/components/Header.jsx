@@ -5,10 +5,10 @@ import { Heading } from 'react-bulma-components';
 export default function Header() {
   return (
     <>
-      <Heading>
+      <Heading textAlign='center'>
         Dispatcher
       </Heading>
-      <Heading subtitle>
+      <Heading subtitle textAlign='center'>
         The best dispatching program you've ever used
       </Heading>
     </>
