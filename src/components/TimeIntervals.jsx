@@ -3,7 +3,7 @@ import { Content } from "react-bulma-components";
 
 export default function TimeIntervals() {
   // Function to create Y-axis showing time intervals
-  const cells = ["Time" ];
+  const cells = ["Time"];
   const cellsLimit = 16.4;
 
   for (let i = 8.0; i < cellsLimit; i += 0.1) {

@@ -11,6 +11,7 @@ export default function TechGridBody() {
   const maxNumberOfRows = 85;
   const maxNumberOfColumns = numberOfTechs;
 
+  // Need to make this work to show appropriate content
   const techGridFunction = () => {
     for (let i = 0; i < maxNumberOfRows; i += 1) {
       for (let j = 0; j < maxNumberOfColumns; j += 1) {
