@@ -7,14 +7,14 @@ import { Columns } from "react-bulma-components";
 export default function App() {
   return (
     <div>
-      <Columns>
+      <Columns class='ml-6 mt-3'>
         <Columns.Column>
           <Header />
           <Columns>
-            <Columns.Column offset="1" size={2}>
+            <Columns.Column class='mr-6' size={1}>
               <TimeIntervals />
             </Columns.Column>
-            <Columns.Column size={11}>
+            <Columns.Column flex size={11}>
               <TechGridBody/>
             </Columns.Column>
           </Columns>
