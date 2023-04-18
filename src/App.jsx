@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import TechGridBody from "./components/TechGridBody";
 import TimeIntervals from "./components/TimeIntervals";
+import TechGridHeader from './components/TechGridHeader'
 import React from "react";
 import { Columns } from "react-bulma-components";
 
@@ -10,11 +11,12 @@ export default function App() {
       <Columns class='ml-6 mt-3'>
         <Columns.Column>
           <Header />
+          <TechGridHeader />
           <Columns>
-            <Columns.Column class='mr-6' size={1}>
+            <Columns.Column size={1}>
               <TimeIntervals />
             </Columns.Column>
-            <Columns.Column flex size={11}>
+            <Columns.Column size={11}>
               <TechGridBody/>
             </Columns.Column>
           </Columns>
