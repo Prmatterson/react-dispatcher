@@ -4,16 +4,25 @@ import { Content, Columns } from 'react-bulma-components'
 export default function TimeIntervals() {
 
   // Function to create Y-axis showing time intervals
-  let cells = [];
-  let cellsLimit = 16.6
-  for (let i = 8.2; i < cellsLimit; i += 0.1) {
+  const cells = [];
+  const cellsLimit = 16.5
+  
+  for (let i = 8.0; i < cellsLimit; i += 0.1) {
     cells.push(i.toFixed(1))
-  }
+  } 
+
+  const cellsMap = cells.map((time) => (
+    <div>
+      {time}
+    </div>
+  ))
   // output = array[0].map((_, colIndex) => array.map(row => row[colIndex]));
   return (
     <>
-          <Columns vertical size={1}>
-            <Content>{cells}</Content> 
+          <Columns>
+            <Content>
+              {cellsMap}
+            </Content> 
           </Columns>
     </>
   );
