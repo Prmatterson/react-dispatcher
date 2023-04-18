@@ -6,7 +6,7 @@ export default function TimeIntervals() {
   const cells = ["Time"];
   const cellsLimit = 16.4;
 
-  // Generates array of times from start to finish = "i" defines the start, cellsLimit the end
+  // Generates array of times from start to finish = "i" defines the start time, cellsLimit the end time
   for (let i = 8.0; i < cellsLimit; i += 0.1) {
     cells.push(i.toFixed(1));
   }
