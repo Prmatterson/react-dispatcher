@@ -1,13 +1,12 @@
 import React from "react";
-import { Content } from "react-bulma-components";
-import { DragDropContext } from '@hello-pangea/dnd'
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 export default function TechGridBody() {
-
-  
   return (
     <DragDropContext>
-      <div>Hello World</div>
+      <Droppable droppableId="droppable-1">
+        <Draggable>Hello World</Draggable>
+      </Droppable>
     </DragDropContext>
   );
 }
