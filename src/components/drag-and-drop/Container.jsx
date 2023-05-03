@@ -12,8 +12,8 @@ const styles = {
 };
 export const Container = ({ snapToGrid }) => {
   const [boxes, setBoxes] = useState({
-    a: { top: 20, left: 80, title: 'Drag me around' },
-    b: { top: 180, left: 20, title: 'Drag me around' },
+    a: { top: 20, left: 0, title: 'Drag me around' },
+    b: { top: 180, left: 0, title: 'Drag me around' },
   });
   const moveBox = useCallback(
     (id, left, top) => {
