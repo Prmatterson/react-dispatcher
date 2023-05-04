@@ -12,10 +12,11 @@ const styles = {
   marginTop: '30px',
 };
 export const Container = ({ snapToGrid }) => {
-  const [boxes, setBoxes] = useState({
-    a: { top: 20, left: 0, title: 'Drag me around' },
-    b: { top: 180, left: 0, title: 'Drag me around' },
-  });
+  const [boxes, setBoxes] = useState([
+    { top: 24, left: 0, title: 'Drag me around', height: '200px' },
+    { top: 0, left: 0, title: 'Drag me around', height: '50px' },
+  ]);
+
   const moveBox = useCallback(
     (id, left, top) => {
       setBoxes(
@@ -47,8 +48,8 @@ export const Container = ({ snapToGrid }) => {
   );
   return (
     <div ref={drop} style={styles}>
-      {Object.keys(boxes).map((key) => (
-        <DraggableBox key={key} id={key} {...boxes[key]} />
+      {boxes.map((boxData, index) => (
+        <DraggableBox key={index} id={index} {...boxData} />
       ))}
     </div>
   );
