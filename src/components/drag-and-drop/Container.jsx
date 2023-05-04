@@ -9,6 +9,7 @@ const styles = {
   height: 2075,
   border: '1px solid black',
   position: 'relative',
+  marginTop: '30px',
 };
 export const Container = ({ snapToGrid }) => {
   const [boxes, setBoxes] = useState({
