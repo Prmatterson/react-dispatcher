@@ -4,9 +4,10 @@ import { useDrop } from 'react-dnd';
 import { DraggableBox } from './DraggableBox';
 import { ItemTypes } from './ItemTypes';
 import { snapToGrid as doSnapToGrid } from './snapToGrid';
+
 const styles = {
-  width: 150,
-  height: 2075,
+  width: '100%',
+  height: 2030,
   border: '1px solid black',
   position: 'relative',
   marginTop: '30px',
@@ -46,6 +47,21 @@ export const TechOne = ({ snapToGrid }) => {
     }),
     [moveBox]
   );
+
+/** Styling properties applied to each square element */
+const cellStyle = { width: '12.5%', height: '4%' }
+  // This is where the draggable items are rendered
+
+function renderCell(i) {
+    return (
+      <div key={i} style={cellStyle}>
+      </div>)}
+
+const squares = []
+  for (let i = 0; i < 64; i += 1) {
+    squares.push(renderCell(i))}
+
+    // The below renders the draggable surface, e.g. the style determines width, border, etc.
   return (
     <div ref={drop} style={styles}>
       {boxes.map((boxData, index) => (

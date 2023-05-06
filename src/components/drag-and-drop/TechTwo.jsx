@@ -14,7 +14,7 @@ const styles = {
 };
 export const TechTwo = ({ snapToGrid }) => {
   const [boxes, setBoxes] = useState([
-    { top: 24, left: 0, title: 'Drag me around', height: '200px' },
+    { top: 60, left: 0, title: 'Drag me around', height: '200px' },
     { top: 0, left: 0, title: 'Drag me around', height: '50px' },
   ]);
 
