@@ -4,6 +4,7 @@ import { useDrop } from 'react-dnd';
 import { DraggableBox } from './DraggableBox';
 import { ItemTypes } from './ItemTypes';
 import { snapToGrid as doSnapToGrid } from './snapToGrid';
+
 const styles = {
   width: 150,
   height: 2075,
@@ -11,7 +12,7 @@ const styles = {
   position: 'relative',
   marginTop: '30px',
 };
-export const Container = ({ snapToGrid }) => {
+export const TechTwo = ({ snapToGrid }) => {
   const [boxes, setBoxes] = useState([
     { top: 24, left: 0, title: 'Drag me around', height: '200px' },
     { top: 0, left: 0, title: 'Drag me around', height: '50px' },
