@@ -47,24 +47,20 @@ export const TechGrid = ({ snapToGrid }) => {
 
   // Array of Techs (will eventually determine number of columns and header of grid body)
   const techs = ["tech1", "tech2", "tech3"];
+  const techCount = techs.length;
 
   // Time Array
-
   const timeCell = [];
   const startTime = 8.0;
   const endTime = 16.5;
 
-  // Generates array of times from start to finish = "i" defines the start time, cellsLimit the end time
   for (let i = startTime; i < endTime - 0.1; i += 0.1) {
     timeCell.push(<div>{i.toFixed(1)}</div>);
   }
 
-  // Variables for creating grid framework by tech (x-axis) and time (y-axis)
+  // For loop for creating grid framework by time and tech
   const gridCell = [];
-  const techCount = techs.length;
-
-  // For loop for creating grid framework by tech (x-axis) and time (y-axis)
-  for (let x = 0; x <= techCount * 82; x++) {
+  for (let x = 0; x <= techCount * timeCell.length; x++) {
     gridCell.push(x);
     console.log(gridCell);
   }
@@ -74,9 +70,12 @@ export const TechGrid = ({ snapToGrid }) => {
     <div ref={drop}>
       <Columns>
         <Columns.Column size={1}>{timeCell}</Columns.Column>
-        <Columns.Column size={11}>{boxes.map((boxData, index) => (
-          <DraggableBox key={index} id={index} {...boxData} />
-        ))}</Columns.Column>
+        <Columns.Column size={10}>
+          {boxes.map((boxData, index) => (
+            <DraggableBox key={index} id={index} {...boxData} />
+          ))}
+        </Columns.Column>
+        <Columns.Column size={1}>{timeCell}</Columns.Column>
       </Columns>
     </div>
   );
