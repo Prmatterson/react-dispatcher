@@ -8,6 +8,10 @@ const techs = [
     'tech2',
     'tech3',
 ]
+
+const techCount = techs.length;
+console.log(techCount)
+
   return (
     <>
       {techs}

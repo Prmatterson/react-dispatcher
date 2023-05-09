@@ -5,6 +5,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import TimeIntervals from "./TimeIntervals";
 import { Columns } from "react-bulma-components";
+import Techs from '../Techs'
 
 export const VerticalList = () => {
 
@@ -19,6 +20,7 @@ export const VerticalList = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
+      <Techs />
       <Columns style={styles}>
         <Columns.Column size={1}>
           <TimeIntervals />
