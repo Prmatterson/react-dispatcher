@@ -4,7 +4,6 @@ import { useDrop } from "react-dnd";
 import { DraggableBox } from "./DraggableBox";
 import { ItemTypes } from "./ItemTypes";
 import { snapToGrid as doSnapToGrid } from "./snapToGrid";
-import { Cell } from './Cell';
 
 const styles = {
   width: "100%",
@@ -14,12 +13,14 @@ const styles = {
   marginTop: "30px",
 };
 export const TechGrid = ({ snapToGrid }) => {
+
   // This creates each individual job/box in the grid, will eventually need a function to create them
   const [boxes, setBoxes] = useState([
     { top: 24, left: 0, title: "Drag me around", height: "200px" },
     { top: 0, left: 0, title: "Drag me around", height: "50px" },
   ]);
 
+  // This determines how the boxes move
   const moveBox = useCallback(
     (id, left, top) => {
       setBoxes(
@@ -33,6 +34,7 @@ export const TechGrid = ({ snapToGrid }) => {
     [boxes]
   );
 
+  // This determines how the boxes drop
   const [, drop] = useDrop(
     () => ({
       accept: ItemTypes.BOX,
@@ -50,17 +52,27 @@ export const TechGrid = ({ snapToGrid }) => {
     [moveBox]
   );
 
-  function renderCells() {
-    const cellStyle = { width: '12.5%', height: '4%' }
-      return (
-        <div style={cellStyle}>
-          <Cell />
-        </div>)}
+// Array of Techs (will eventually determine number of columns and header of grid body)
+  const techs = [
+    'tech1',
+    'tech2',
+    'tech3',
+  ]
+  
+  // Variables for creating grid framework by tech (x-axis) and time (y-axis)
+  const gridCell = [];
+  const techCount = techs.length;
+  console.log(techCount)
+
+  // For loop for creating grid framework by tech (x-axis) and time (y-axis)
+  for (let x = 0; x <= techCount * 82; x++) {
+    gridCell.push(x);
+  }
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
   return (
     <div ref={drop} style={styles}>
-      {renderCells}
+      {gridCell}
       {boxes.map((boxData, index) => (
         <DraggableBox key={index} id={index} {...boxData} />
       ))}
