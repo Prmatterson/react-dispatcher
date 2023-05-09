@@ -1,8 +1,8 @@
 import React from 'react'
 
-export function Cell({ black, children }) {
-  const fill = black ? 'black' : 'white'
-  const stroke = black ? 'white' : 'black'
+export function Cell({ white, children }) {
+  const fill = white ? 'white' : 'black'
+  const stroke = white ? 'white' : 'black'
 
   return (
     <div
