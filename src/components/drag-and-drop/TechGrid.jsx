@@ -60,7 +60,7 @@ export const TechGrid = ({ snapToGrid }) => {
 
   function createColumns() {
     for (let i = 1; i <= techs.length; i += 1) {
-      jobColumns.push(<div>Tech {i}</div>)
+      jobColumns.push(<Columns.Column>Tech {i}</Columns.Column>)
 
     }
     return <Columns.Column>{jobColumns}</Columns.Column>
