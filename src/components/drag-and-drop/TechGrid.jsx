@@ -45,12 +45,8 @@ export const TechGrid = ({ snapToGrid }) => {
     [moveBox]
   );
 
-  // Array of Techs (will eventually determine number of columns and header of grid body)
-  const techs = ["tech1", "tech2", "tech3"];
-  const techCount = techs.length;
-
   // Time Array
-  const timeCell = [];
+  const timeCell = ["Time"];
   const startTime = 8.0;
   const endTime = 16.5;
 
@@ -58,11 +54,16 @@ export const TechGrid = ({ snapToGrid }) => {
     timeCell.push(<div>{i.toFixed(1)}</div>);
   }
 
-  // For loop for creating grid framework by time and tech
-  const gridCell = [];
-  for (let x = 0; x <= techCount * timeCell.length; x++) {
-    gridCell.push(x);
-    console.log(gridCell);
+  // Creating Job/Tech Columns
+  const techs = ["tech1", "tech2", "tech3"];
+  const jobColumns = []
+
+  function createColumns() {
+    for (let i = 1; i <= techs.length; i += 1) {
+      jobColumns.push(<div>Tech {i}</div>)
+
+    }
+    return <Columns.Column>{jobColumns}</Columns.Column>
   }
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
@@ -70,12 +71,18 @@ export const TechGrid = ({ snapToGrid }) => {
     <div ref={drop}>
       <Columns>
         <Columns.Column size={1}>{timeCell}</Columns.Column>
-        <Columns.Column size={10}>
-          {boxes.map((boxData, index) => (
-            <DraggableBox key={index} id={index} {...boxData} />
-          ))}
-        </Columns.Column>
+        <Columns.Column>{createColumns()}</Columns.Column>
+        {/* <Columns.Column size={2}>Tech 1</Columns.Column>
+        <Columns.Column size={2}>Tech 2</Columns.Column>
+        <Columns.Column size={2}>Tech 3</Columns.Column>
+        <Columns.Column size={2}>Tech 4</Columns.Column>
+        <Columns.Column size={2}>Tech 5</Columns.Column> */}
         <Columns.Column size={1}>{timeCell}</Columns.Column>
+      </Columns>
+      <Columns>
+        {boxes.map((boxData, index) => (
+          <DraggableBox key={index} id={index} {...boxData} />
+        ))}
       </Columns>
     </div>
   );
