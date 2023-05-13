@@ -49,21 +49,15 @@ export const TechGrid = ({ snapToGrid }) => {
   const timeCell = ["Time"];
   const startTime = 8.0;
   const endTime = 16.5;
-
   for (let i = startTime; i < endTime - 0.1; i += 0.1) {
     timeCell.push(<div>{i.toFixed(1)}</div>);
   }
 
-  // Creating Job/Tech Columns
-  const techs = ["tech1", "tech2", "tech3"];
-  const jobColumns = []
-
-  function createColumns() {
-    for (let i = 1; i <= techs.length; i += 1) {
-      jobColumns.push(<Columns.Column>Tech {i}</Columns.Column>)
-
-    }
-    return <Columns.Column>{jobColumns}</Columns.Column>
+  // Job/Tech Columns Array
+  const techs = ["Justin", "Colin", "Luke"];
+  const jobColumns = [];
+  for (let i = 0; i < techs.length; i += 1) {
+    jobColumns.push(techs[i]);
   }
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
@@ -71,12 +65,7 @@ export const TechGrid = ({ snapToGrid }) => {
     <div ref={drop}>
       <Columns>
         <Columns.Column size={1}>{timeCell}</Columns.Column>
-        <Columns.Column>{createColumns()}</Columns.Column>
-        {/* <Columns.Column size={2}>Tech 1</Columns.Column>
-        <Columns.Column size={2}>Tech 2</Columns.Column>
-        <Columns.Column size={2}>Tech 3</Columns.Column>
-        <Columns.Column size={2}>Tech 4</Columns.Column>
-        <Columns.Column size={2}>Tech 5</Columns.Column> */}
+        <Columns.Column size={10}>{jobColumns}</Columns.Column>
         <Columns.Column size={1}>{timeCell}</Columns.Column>
       </Columns>
       <Columns>

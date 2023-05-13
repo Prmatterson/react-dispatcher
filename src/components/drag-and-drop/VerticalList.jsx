@@ -20,9 +20,9 @@ export const VerticalList = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <Columns style={styles}>
-        <Columns.Column size={0}>
+        {/* <Columns.Column size={0}> */}
           {/* <TimeIntervals /> */}
-        </Columns.Column>
+        {/* </Columns.Column> */}
         <Columns.Column size={12}>
           <TechGrid snapToGrid={true} />
         </Columns.Column>
