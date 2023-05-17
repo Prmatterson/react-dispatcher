@@ -73,7 +73,7 @@ export const TechGrid = ({ snapToGrid }) => {
         <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
         <div style={{ display: "flex", justifyContent: "space-evenly", textAlign: "center", width:"83%" }}>
           {techs.map((techDetails) => {
-            return <Columns.Column>{techDetails.name}</Columns.Column>;
+            return <Columns.Column style={{border: "1px solid grey", margin: "1px", padding: "1px"}}>{techDetails.name}</Columns.Column>;
           })}
         </div>
         <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
