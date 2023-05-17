@@ -54,25 +54,31 @@ export const TechGrid = ({ snapToGrid }) => {
   }
 
   // Job/Tech Columns Array
-  const techs = ["Justin", "Colin", "Luke"];
-  const jobColumns = [];
-  for (let i = 0; i < techs.length; i += 1) {
-    jobColumns.push(techs[i]);
-  }
+  const techs = [
+    { name: "Justin", number: 13 },
+    { name: "Colin", number: 144 },
+    { name: "Luke", number: 166 },
+    { name: "Tim", number: 45 },
+  ];
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
   return (
     <div ref={drop}>
       <Columns>
-        <Columns.Column size={1}>{timeCell}</Columns.Column>
-        <Columns.Column size={10}>{jobColumns}</Columns.Column>
-        <Columns.Column size={1}>{timeCell}</Columns.Column>
-      </Columns>
-      <Columns>
         {boxes.map((boxData, index) => (
           <DraggableBox key={index} id={index} {...boxData} />
         ))}
       </Columns>
+      <Columns>
+        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
+        <div style={{ display: "flex", justifyContent: "space-evenly", textAlign: "center", width:"83%" }}>
+          {techs.map((techDetails) => {
+            return <Columns.Column>{techDetails.name}</Columns.Column>;
+          })}
+        </div>
+        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
+      </Columns>
+      
     </div>
   );
 };
