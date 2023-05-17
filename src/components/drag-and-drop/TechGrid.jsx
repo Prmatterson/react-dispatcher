@@ -58,7 +58,6 @@ export const TechGrid = ({ snapToGrid }) => {
     { name: "Justin", number: 13 },
     { name: "Colin", number: 144 },
     { name: "Luke", number: 166 },
-    { name: "Tim", number: 45 },
   ];
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
