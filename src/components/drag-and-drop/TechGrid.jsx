@@ -6,6 +6,12 @@ import { ItemTypes } from "./ItemTypes";
 import { snapToGrid as doSnapToGrid } from "./snapToGrid";
 import { Columns } from "react-bulma-components";
 
+export const techs = [
+  { name: "Justin", number: 13 },
+  { name: "Colin", number: 144 },
+  { name: "Luke", number: 166 },
+];
+
 export const TechGrid = ({ snapToGrid }) => {
   // This creates each individual job/box in the grid, will eventually need a function to create them
   const [boxes, setBoxes] = useState([
@@ -53,12 +59,8 @@ export const TechGrid = ({ snapToGrid }) => {
     timeCell.push(<div>{i.toFixed(1)}</div>);
   }
 
-  // Job/Tech Columns Array
-  const techs = [
-    { name: "Justin", number: 13 },
-    { name: "Colin", number: 144 },
-    { name: "Luke", number: 166 },
-  ];
+  // Job/Tech Columns Array is outside of the function above (so it can be exported)
+
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
   return (
