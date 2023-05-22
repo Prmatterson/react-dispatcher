@@ -12,7 +12,7 @@ export const techs = [
   { name: "Luke", number: 166 },
 ];
 
-export const timeCell = [];
+export const timeCell = ["Time"];
 const startTime = 8.0;
 const endTime = 16.5;
 for (let i = startTime; i < endTime - 0.1; i += 0.1) {

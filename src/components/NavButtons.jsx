@@ -1,11 +1,17 @@
 import { React, useState } from "react";
 import { Box, Button, Modal, Form } from "react-bulma-components";
-import { techs, timeCell } from "./drag-and-drop/TechGrid";
+import { techs } from "./drag-and-drop/TechGrid";
 
 export default function NavButtons() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const jobTime = [];
+
+  for (let time = 0.1; time <= 8.0; time += 0.1) {
+    jobTime.push(time.toFixed(1));
+  }
 
   return (
     <>
@@ -16,7 +22,7 @@ export default function NavButtons() {
       </Box>
 
       <Modal show={show} onClose={handleClose}>
-        <Modal.Content backgroundColor="white" padding="100px" showClose={true}>
+        <Modal.Content backgroundColor="white" showClose={true}>
           <Form.Field>
             <Form.Label>Tech Name</Form.Label>
             <Form.Control size={2}>
@@ -29,7 +35,7 @@ export default function NavButtons() {
               <Form.Input></Form.Input>
               <Form.Label>Length of Job</Form.Label>
               <Form.Select>
-                {timeCell.map((timeDetails) => {
+                {jobTime.map((timeDetails) => {
                   return <option>{timeDetails}</option>;
                 })}
               </Form.Select>
