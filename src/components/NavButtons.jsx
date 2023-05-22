@@ -33,6 +33,8 @@ export default function NavButtons() {
               </Form.Select>
               <Form.Label>Work Order Number</Form.Label>
               <Form.Input></Form.Input>
+              <Form.Label>Job Description</Form.Label>
+              <Form.Input></Form.Input>
               <Form.Label>Length of Job</Form.Label>
               <Form.Select>
                 {jobTime.map((timeDetails) => {
@@ -41,6 +43,16 @@ export default function NavButtons() {
               </Form.Select>
             </Form.Control>
           </Form.Field>
+          <Box>
+            <div>
+              <Button color="success" renderAs="span">
+                Create Job
+              </Button>
+              <Button color="danger" renderAs="span" onClick={handleClose}>
+                Cancel
+              </Button>
+            </div>
+          </Box>
         </Modal.Content>
       </Modal>
       <br></br>
