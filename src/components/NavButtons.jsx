@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Box, Button, Modal, Form } from "react-bulma-components";
-import { techs } from "./drag-and-drop/TechGrid";
+// import { techs } from "./drag-and-drop/TechGrid";
 
 export default function NavButtons() {
   const [show, setShow] = useState(false);
@@ -24,14 +24,18 @@ export default function NavButtons() {
       <Modal show={show} onClose={handleClose}>
         <Modal.Content backgroundColor="white" showClose={true}>
           <Form.Field>
-            <Form.Label>Tech Name</Form.Label>
             <Form.Control size={2}>
-              <Form.Select>
+            {/* <Form.Label>Tech Name</Form.Label> */}
+              {/* <Form.Select> 
+              ---- Add this back in once I figure out how to have it be created within a specific
+              column at a specific time (won't be able to overlap other existing jobs)----
                 {techs.map((techDetails) => {
                   return <option>{techDetails.name}</option>;
                 })}
-              </Form.Select>
+              </Form.Select> */}
               <Form.Label>Work Order Number</Form.Label>
+              <Form.Input></Form.Input>
+              <Form.Label>Customer Name</Form.Label>
               <Form.Input></Form.Input>
               <Form.Label>Job Description</Form.Label>
               <Form.Input></Form.Input>

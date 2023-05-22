@@ -5,17 +5,20 @@ const styles = {
   cursor: 'move',
 };
 export const Box = memo(function Box({
-  title,
-  yellow,
+  workOrderNumber,
+  customerName,
+  jobDescription,
   preview,
   ...stylingProps
 }) {
-  const backgroundColor = yellow ? 'yellow' : 'white';
+  const backgroundColor = 'white';
   return (
     <div
       style={{ ...styles, ...stylingProps, backgroundColor }}
       role={preview ? 'BoxPreview' : 'Box'}>
-      {title}
+      {workOrderNumber} -- {customerName} 
+      <br></br>
+      {jobDescription}
     </div>
   );
 });
