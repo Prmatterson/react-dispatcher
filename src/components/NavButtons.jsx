@@ -8,7 +8,6 @@ export default function NavButtons() {
   const handleShow = () => setShow(true);
 
   const jobTime = [];
-
   for (let time = 0.1; time <= 8.0; time += 0.1) {
     jobTime.push(time.toFixed(1));
   }
