@@ -16,9 +16,7 @@ export const Box = memo(function Box({
     <div
       style={{ ...styles, ...stylingProps, backgroundColor }}
       role={preview ? 'BoxPreview' : 'Box'}>
-      {workOrderNumber} -- {customerName} 
-      <br></br>
-      {jobDescription}
+      {workOrderNumber} -- {customerName} -- {jobDescription}
     </div>
   );
 });
