@@ -3,7 +3,7 @@ import { Box, Button, Modal, Form } from "react-bulma-components";
 import { useForm } from "react-hook-form";
 // import { techs } from "./drag-and-drop/TechGrid";
 
-export default function NavButtons() {
+export default function Buttons() {
   // Setting up state/react-hook-form on form data
   const {
     register,
