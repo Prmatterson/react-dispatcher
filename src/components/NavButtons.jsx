@@ -1,7 +1,6 @@
-import { React, useState } from "react";
-import { Box, Button, Modal, Form } from "react-bulma-components";
-import { useForm } from "react-hook-form";
-// import { techs } from "./drag-and-drop/TechGrid";
+import { React, useState } from 'react';
+import { Box, Button, Modal } from 'react-bulma-components';
+import { useForm } from 'react-hook-form';
 
 export default function NavButtons() {
   // Setting up state/react-hook-form on form data
@@ -12,7 +11,7 @@ export default function NavButtons() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
-  console.log(watch("workOrderNumber")); // watch input value by passing the name of it
+  console.log(watch('workOrderNumber')); // watch input value by passing the name of it
 
   // using state to open/close Modal
   const [show, setShow] = useState(false);
@@ -36,49 +35,39 @@ export default function NavButtons() {
 
       {/* Modal itself */}
       <Modal show={show} onClose={handleClose}>
-        <Modal.Content backgroundColor="white" showClose={true}>
+        <Modal.Content backgroundColor='white' showClose={true}>
           <form onSubmit={handleSubmit(onSubmit)} size={2}>
-            {/* <Form.Label>Tech Name</Form.Label> */}
-            {/* <Form.Select> 
-              ---- Add this back in once I figure out how to have it be created within a specific
-              column at a specific time (won't be able to overlap other existing jobs)----
-                {techs.map((techDetails) => {
-                  return <option>{techDetails.name}</option>;
-                })}
-              </Form.Select> */}
-            <Form.Label>Work Order Number</Form.Label>
-            <Form.Input
-              {...register("workOrderNumber", { required: true })}
-            ></Form.Input>
-            <Form.Label>Customer Name</Form.Label>
-            <Form.Input
-              {...register("customerName", { required: true })}
-            ></Form.Input>
-            <Form.Label>Job Description</Form.Label>
-            <Form.Input
-              {...register("jobDescription", { required: true })}
-            ></Form.Input>
-            <Form.Label>Job Length</Form.Label>
-            <Form.Select {...register("jobLength", { required: true })}>
-              {jobTime.map((timeDetails) => {
-                return <option>{timeDetails}</option>;
+            <label>Work Order Number</label>
+            <input {...register('workOrderNumber', { required: true })}></input>
+            <label>Customer Name</label>
+            <input {...register('customerName', { required: true })}></input>
+            <label>Job Description</label>
+            <input {...register('jobDescription', { required: true })}></input>
+            <label>Job Length</label>
+            <select {...register('jobLength', { required: true })}>
+              {jobTime.map((timeDetails, index) => {
+                return (
+                  <option key={index} value={timeDetails}>
+                    {timeDetails}
+                  </option>
+                );
               })}
-            </Form.Select>
+            </select>
             {errors.exampleRequired && <span>This field is required</span>}
             <br></br>
             <br></br>
             <input
-              class="button"
-              type="submit"
-              renderAs="span"
-              value="Create Job"
+              className='button'
+              type='submit'
+              renderAs='span'
+              value='Create Job'
             />
             <input
-              class="button"
-              type="cancel"
-              renderAs="span"
+              className='button'
+              type='button'
+              renderAs='span'
               onClick={handleClose}
-              value="Cancel"
+              value='Cancel'
             />
           </form>
         </Modal.Content>
