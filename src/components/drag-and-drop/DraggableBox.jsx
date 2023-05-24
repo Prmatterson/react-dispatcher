@@ -30,12 +30,11 @@ export const DraggableBox = memo(function DraggableBox(props) {
   );
   useEffect(() => {
     preview(getEmptyImage(), { captureDraggingState: true });
-  }, []);
+  });
   return (
     <div
       ref={drag}
-      style={getStyles(left, top, isDragging)}
-      role='DraggableBox'>
+      style={getStyles(left, top, isDragging)}>
       <Box title={title} {...stylingProps} />
     </div>
   );
