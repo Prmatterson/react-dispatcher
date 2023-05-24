@@ -1,20 +1,20 @@
-import update from "immutability-helper";
-import { useCallback, useState } from "react";
-import { useDrop } from "react-dnd";
-import { DraggableBox } from "./DraggableBox";
-import { ItemTypes } from "./ItemTypes";
-import { snapToGrid as doSnapToGrid } from "./snapToGrid";
-import { Columns } from "react-bulma-components";
+import update from 'immutability-helper';
+import { useCallback, useState } from 'react';
+import { useDrop } from 'react-dnd';
+import { DraggableBox } from './DraggableBox';
+import { ItemTypes } from './ItemTypes';
+import { snapToGrid as doSnapToGrid } from './snapToGrid';
+import { Columns } from 'react-bulma-components';
 
 export const techs = [
-  { name: "Justin", number: 13 },
-  { name: "Colin", number: 144 },
-  { name: "Luke", number: 166 },
+  { name: 'Justin', number: 13 },
+  { name: 'Colin', number: 144 },
+  { name: 'Luke', number: 166 },
 ];
 
-const techsLength = techs.length
+const techsLength = techs.length;
 
-export const timeCell = ["Time"];
+export const timeCell = ['Time'];
 const startTime = 8.0;
 const endTime = 16.5;
 for (let i = startTime; i < endTime - 0.1; i += 0.1) {
@@ -24,7 +24,15 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
 export const TechGrid = ({ snapToGrid }) => {
   // This creates each individual job/box in the grid, will eventually need a function to create them
   const [boxes, setBoxes] = useState([
-    { top: 24, left: 0, width: 1000/techsLength, workOrderNumber: "6009", customerName: "Bob", jobDescription: "Oil Change", height: "200px" },
+    {
+      top: 24,
+      left: 0,
+      width: 1000 / techsLength,
+      workOrderNumber: '6009',
+      customerName: 'Bob',
+      jobDescription: 'Oil Change',
+      height: '200px',
+    },
   ]);
 
   // This determines how the boxes move
@@ -60,9 +68,8 @@ export const TechGrid = ({ snapToGrid }) => {
   );
 
   // Time Array
- 
-  // Job/Tech Columns Array is outside of the function above (so it can be exported)
 
+  // Job/Tech Columns Array is outside of the function above (so it can be exported)
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
   return (
@@ -73,15 +80,33 @@ export const TechGrid = ({ snapToGrid }) => {
         ))}
       </Columns>
       <Columns>
-        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
-        <div style={{ display: "flex", justifyContent: "space-evenly", textAlign: "center", width:"83%" }}>
+        <Columns.Column style={{ textAlign: 'center' }} size={1}>
+          {timeCell}
+        </Columns.Column>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            textAlign: 'center',
+            width: '1000px',
+          }}>
           {techs.map((techDetails) => {
-            return <Columns.Column style={{border: "1px solid grey", margin: "1px", padding: "1px"}}>{techDetails.name}</Columns.Column>;
+            return (
+              <Columns.Column
+                style={{
+                  border: '1px solid grey',
+                  margin: '1px',
+                  padding: '1px',
+                }}>
+                {techDetails.name}
+              </Columns.Column>
+            );
           })}
         </div>
-        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
+        <Columns.Column style={{ textAlign: 'center' }} size={1}>
+          {timeCell}
+        </Columns.Column>
       </Columns>
-      
     </div>
   );
 };
