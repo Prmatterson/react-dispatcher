@@ -1,7 +1,7 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
 import { Heading } from "react-bulma-components";
-import NavButtons from "./NavButtons";
+import Buttons from "./Buttons";
 
 export default function Header() {
   return (
@@ -11,7 +11,7 @@ export default function Header() {
         The best dispatching program you've ever used
       </Heading>
       <div>
-        <NavButtons />
+        <Buttons />
       </div>
     </>
   );
