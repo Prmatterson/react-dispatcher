@@ -1,6 +1,5 @@
 import Header from "./components/Header";
-import TechGridBody from "./components/TechGridBody";
-import TimeIntervals from "./components/TimeIntervals";
+import { VerticalList } from "./components/drag-and-drop/VerticalList";
 import React from "react";
 import { Columns } from "react-bulma-components";
 
@@ -11,11 +10,8 @@ export default function App() {
         <Columns.Column>
           <Header />
           <Columns>
-            <Columns.Column size={1}>
-              <TimeIntervals />
-            </Columns.Column>
-            <Columns.Column size={11}>
-              <TechGridBody/>
+            <Columns.Column size={12}>
+              <VerticalList />
             </Columns.Column>
           </Columns>
         </Columns.Column>
