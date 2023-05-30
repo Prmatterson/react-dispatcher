@@ -19,7 +19,7 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
   timeCell.push(<div>{i.toFixed(1)}</div>);
 }
 
-export const TechGrid = ({ snapToGrid }) => {
+export const TechGrid = ({ snapToGrid, addJobData }) => {
   // This creates each individual job/box in the grid, will eventually need a function to create them
   const [boxes, setBoxes] = useState([
     { top: 24, left: 0, width: 1000/techs.Length, workOrderNumber: "6009", customerName: "Bob", jobDescription: "Oil Change", height: "200px" },

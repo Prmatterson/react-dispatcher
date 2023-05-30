@@ -4,17 +4,17 @@ const styles = {
   padding: '0.5rem 1rem',
   cursor: 'move',
 };
-export const Box = memo(function Box({
+export const Box = memo(function Box({ 
   workOrderNumber,
   customerName,
   jobDescription,
   preview,
   ...stylingProps
 }) {
-  const backgroundColor = 'white';
+
   return (
     <div
-      style={{ ...styles, ...stylingProps, backgroundColor }}
+      style={{ ...styles, ...stylingProps, backgroundColor: "white"}}
       role={preview ? 'BoxPreview' : 'Box'}>
       {workOrderNumber} -- {customerName} -- {jobDescription}
     </div>

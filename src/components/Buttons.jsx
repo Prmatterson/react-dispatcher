@@ -3,7 +3,7 @@ import { Box, Button, Modal, Form } from "react-bulma-components";
 import { useForm } from "react-hook-form";
 // import { techs } from "./drag-and-drop/TechGrid";
 
-export default function Buttons() {
+export default function Buttons( setAddJobData ) {
   // Setting up state/react-hook-form on form data
   const {
     register,
@@ -11,7 +11,11 @@ export default function Buttons() {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    setAddJobData((prev) => [...prev, data])
+  }
   console.log(watch("workOrderNumber")); // watch input value by passing the name of it
 
   // using state to open/close Modal
