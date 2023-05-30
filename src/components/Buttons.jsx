@@ -27,7 +27,7 @@ export default function Buttons() {
 
   return (
     <>
-      {/* Button in NavBar that opens modal */}
+      {/* Button in toolbar that opens modal */}
       <Box>
         <Button.Group>
           <Button onClick={handleShow}>Add Job</Button>
