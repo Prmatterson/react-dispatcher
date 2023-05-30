@@ -57,11 +57,6 @@ export const TechGrid = ({ snapToGrid }) => {
     [moveBox]
   );
 
-  // Time Array
- 
-  // Job/Tech Columns Array is outside of the function above (so it can be exported)
-
-
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
   return (
     <div ref={drop}>
