@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { VerticalList } from "./components/drag-and-drop/VerticalList";
+import { DragAndDrop } from "./components/drag-and-drop/DragAndDrop";
 import React from "react";
 import { Columns } from "react-bulma-components";
 
@@ -11,7 +11,7 @@ export default function App() {
           <Header />
           <Columns>
             <Columns.Column size={12}>
-              <VerticalList />
+              <DragAndDrop />
             </Columns.Column>
           </Columns>
         </Columns.Column>
