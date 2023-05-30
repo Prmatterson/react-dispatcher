@@ -1,7 +1,8 @@
-import Header from "./components/Header";
-import { DragAndDrop } from "./components/drag-and-drop/DragAndDrop";
 import React from "react";
+import { DragAndDrop } from "./components/drag-and-drop/DragAndDrop";
 import { Columns } from "react-bulma-components";
+import Header from "./components/Header";
+import Buttons from "./components/Buttons"
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Columns class='ml-6 mt-3'>
         <Columns.Column>
           <Header />
+          <Buttons />
           <Columns>
             <Columns.Column size={12}>
               <DragAndDrop />
