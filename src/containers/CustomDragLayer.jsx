@@ -1,7 +1,7 @@
 import { useDragLayer } from 'react-dnd';
-import { BoxDragPreview } from './BoxDragPreview';
-import { ItemTypes } from './ItemTypes.js';
-import { snapToGrid } from './snapToGrid.js';
+import { BoxDragPreview } from '../components/BoxDragPreview';
+import { ItemTypes } from '../constants/ItemTypes';
+import { snapToGrid } from '../utils/snapToGrid.js';
 
 const layerStyles = {
   position: 'fixed',
@@ -32,7 +32,7 @@ function getItemStyles(initialOffset, currentOffset, isSnapToGrid) {
     WebkitTransform: transform,
   };
 }
-export const CustomDragLayer = (props) => {
+export const CustomDragLayer = (props, addJobData) => {
   const { itemType, isDragging, item, initialOffset, currentOffset } =
     useDragLayer((monitor) => ({
       item: monitor.getItem(),
@@ -44,7 +44,7 @@ export const CustomDragLayer = (props) => {
   function renderItem() {
     switch (itemType) {
       case ItemTypes.BOX:
-        return <BoxDragPreview title={item.title} />;
+        return <BoxDragPreview title={item.title} addJobData={addJobData}/>;
       default:
         return null;
     }

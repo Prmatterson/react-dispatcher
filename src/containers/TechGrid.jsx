@@ -1,9 +1,9 @@
 import update from "immutability-helper";
 import { useCallback, useState } from "react";
 import { useDrop } from "react-dnd";
-import { DraggableBox } from "./DraggableBox";
-import { ItemTypes } from "./ItemTypes";
-import { snapToGrid as doSnapToGrid } from "./snapToGrid";
+import { DraggableBox } from "../components/DraggableBox";
+import { ItemTypes } from "../constants/ItemTypes";
+import { snapToGrid as doSnapToGrid } from "../utils/snapToGrid";
 import { Columns } from "react-bulma-components";
 
 export const techs = [

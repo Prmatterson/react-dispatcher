@@ -1,8 +1,8 @@
 import { React, useState } from "react";
-import { DragAndDrop } from "./components/drag-and-drop/DragAndDrop";
+import { DragAndDrop } from "./DragAndDrop";
 import { Columns } from "react-bulma-components";
-import Header from "./components/Header";
-import Buttons from "./components/Buttons"
+import Header from "./Header";
+import Buttons from "./Buttons"
 
 export default function App() {
 
