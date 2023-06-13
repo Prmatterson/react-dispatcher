@@ -15,7 +15,7 @@ export default function JobEditButtons(setAddJobData) {
       {/* Button in toolbar that opens modal */}
       <Box>
         <Button.Group>
-          <Button onClick={handleIsOpen}>Add Job</Button>
+          <Button isOpen={isOpen} onClick={handleIsOpen}>Add Job</Button>
         </Button.Group>
       </Box>
       <AddJobModal />
