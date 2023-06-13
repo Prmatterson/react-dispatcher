@@ -1,5 +1,5 @@
 import { React } from "react";
-import { TechGrid } from "./TechGrid";
+import { TechGrid } from "../components/TechGrid";
 import { CustomDragLayer } from "./CustomDragLayer";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
