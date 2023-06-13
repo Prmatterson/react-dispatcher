@@ -1,9 +1,10 @@
-import { memo, useEffect, useState } from 'react';
-import { Box } from './Box';
+import { memo, useEffect, useState } from "react";
+import { Box } from "./Box";
+
 const styles = {
-  display: 'inline-block',
-  transform: 'rotate(-7deg)',
-  WebkitTransform: 'rotate(-7deg)',
+  display: "inline-block",
+  transform: "rotate(-7deg)",
+  WebkitTransform: "rotate(-7deg)",
 };
 export const BoxDragPreview = memo(function BoxDragPreview({ title }) {
   const [tickTock, setTickTock] = useState(false);
@@ -16,7 +17,7 @@ export const BoxDragPreview = memo(function BoxDragPreview({ title }) {
   );
   return (
     <div style={styles}>
-      <Box title={title} yellow={tickTock} preview />
+      <Box title={title} preview />
     </div>
   );
 });

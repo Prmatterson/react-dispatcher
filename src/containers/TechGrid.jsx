@@ -1,9 +1,9 @@
 import update from "immutability-helper";
 import { useCallback, useState } from "react";
 import { useDrop } from "react-dnd";
-import { DraggableBox } from "./DraggableBox";
-import { ItemTypes } from "./ItemTypes";
-import { snapToGrid as doSnapToGrid } from "./snapToGrid";
+import { DraggableBox } from "../components/DraggableBox";
+import { ItemTypes } from "../constants/ItemTypes";
+import { snapToGrid as doSnapToGrid } from "../utils/snapToGrid";
 import { Columns } from "react-bulma-components";
 
 export const techs = [
@@ -19,7 +19,7 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
   timeCell.push(<div>{i.toFixed(1)}</div>);
 }
 
-export const TechGrid = ({ snapToGrid }) => {
+export const TechGrid = ({ snapToGrid, addJobData }) => {
   // This creates each individual job/box in the grid, will eventually need a function to create them
   const [boxes, setBoxes] = useState([
     { top: 24, left: 0, width: 1000/techs.Length, workOrderNumber: "6009", customerName: "Bob", jobDescription: "Oil Change", height: "200px" },
@@ -56,11 +56,6 @@ export const TechGrid = ({ snapToGrid }) => {
     }),
     [moveBox]
   );
-
-  // Time Array
- 
-  // Job/Tech Columns Array is outside of the function above (so it can be exported)
-
 
   // The below renders the draggable objects, e.g. the style determines width, border, etc.
   return (
