@@ -5,7 +5,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Columns } from "react-bulma-components";
 
-export const DragAndDrop = ( addJobData ) => {
+export const DragAndDropLayer = ( addJobData ) => {
 
   return (
     <DndProvider backend={HTML5Backend}>
