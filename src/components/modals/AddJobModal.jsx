@@ -17,8 +17,8 @@ export function AddJobModal() {
   };
   console.log(watch("workOrderNumber")); // watch input value by passing the name of it
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleIsClosed = () => setIsOpen(false);
 
   // array of times to populate job length form options
   const jobTime = [];
@@ -27,7 +27,7 @@ export function AddJobModal() {
   }
 
   return (
-    <Modal show={show} onClose={handleClose}>
+    <Modal isOpen={isOpen} onClose={handleIsClosed}>
       <Modal.Content backgroundColor="white" showClose={true}>
         <form onSubmit={handleSubmit(onSubmit)} size={2}>
           {/* <Form.Label>Tech Name</Form.Label> */}
@@ -69,7 +69,7 @@ export function AddJobModal() {
             class="button"
             type="cancel"
             renderAs="span"
-            onClick={handleClose}
+            onClick={handleIsClosed}
             value="Cancel"
           />
         </form>
