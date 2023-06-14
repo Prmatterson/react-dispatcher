@@ -7,18 +7,18 @@ export default function JobEditButtons({setAddJobData}) {
 
 
   // using state to open/close Modal
-  const [isOpen, setIsOpen] = useState(false);
-  const handleOpen = () => setIsOpen(true);
+  const [show, setShow] = useState(false);
+  const handleOpen = () => {setShow(true)};
 
   return (
     <>
       {/* Button in toolbar that opens modal */}
       <Box>
         <Button.Group>
-          <Button isOpen={isOpen} onClick={handleOpen}>Add Job</Button>
+          <Button onClick={handleOpen}>Add Job</Button>
         </Button.Group>
       </Box>
-      <AddJobModal />
+      <AddJobModal show={show} setShow={setShow}/>
       <br></br>
     </>
   );

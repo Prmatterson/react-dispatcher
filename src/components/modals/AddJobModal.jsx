@@ -1,24 +1,23 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Modal, Form } from "react-bulma-components";
 import { useForm } from "react-hook-form";
 
-export function AddJobModal() {
+export function AddJobModal({show, setShow}) {
   // Setting up state/react-hook-form on form data
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
 
-  const [isOpen, setIsOpen] = useState(false);
-  const handleClose = () => setIsOpen(false);
+  const handleClose = () => setShow(false);
 
   const onSubmit = (data) => {
     console.log(data);
     // setAddJobData((prev) => [...prev, data]);
   };
-  console.log(watch("workOrderNumber")); // watch input value by passing the name of it
+  // console.log(watch("workOrderNumber")); // watch input value by passing the name of it
 
 
   // array of times to populate job length form options
@@ -28,7 +27,7 @@ export function AddJobModal() {
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose}>
+    <Modal show={show} setShow={setShow} onClose={handleClose}>
       <Modal.Content backgroundColor="white" showClose={true}>
         <form onSubmit={handleSubmit(onSubmit)} size={2}>
           {/* <Form.Label>Tech Name</Form.Label> */}
