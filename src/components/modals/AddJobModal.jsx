@@ -60,13 +60,13 @@ export function AddJobModal({show, setShow}) {
           <br></br>
           <br></br>
           <input
-            class="button"
+            className="button"
             type="submit"
             renderAs="span"
             value="Create Job"
           />
           <input
-            class="button"
+            className="button"
             type="cancel"
             renderAs="span"
             onClick={handleClose}
