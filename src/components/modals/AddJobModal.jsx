@@ -31,7 +31,7 @@ export function AddJobModal({ show, setShow }) {
                   return <option>{techDetails.name}</option>;
                 })}
               </Form.Select> */}
-            <Form.Label for="workOrderNumber">Work Order Number</Form.Label>
+            <Form.Label>Work Order Number</Form.Label>
             <Controller
               control={control}
               name="workOrderNumber"
@@ -46,7 +46,7 @@ export function AddJobModal({ show, setShow }) {
                 ></Form.Input>
               )}
             ></Controller>
-            <Form.Label for="customerName">Customer Name</Form.Label>
+            <Form.Label>Customer Name</Form.Label>
             <Controller
               control={control}
               name="customerName"
@@ -61,7 +61,7 @@ export function AddJobModal({ show, setShow }) {
                 ></Form.Input>
               )}
             ></Controller>
-            <Form.Label for="jobDescription">Job Description</Form.Label>
+            <Form.Label>Job Description</Form.Label>
             <Controller
               control={control}
               name="jobDescription"
@@ -76,7 +76,7 @@ export function AddJobModal({ show, setShow }) {
                 ></Form.Input>
               )}
             ></Controller>
-            <Form.Label for="jobLength">Job Length</Form.Label>
+            <Form.Label>Job Length</Form.Label>
             <Controller
               control={control}
               name="jobLength"
