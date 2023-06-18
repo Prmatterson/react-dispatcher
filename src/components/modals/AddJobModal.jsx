@@ -1,14 +1,12 @@
 import { React } from "react";
 import { Modal, Form } from "react-bulma-components";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
-export function AddJobModal({show, setShow}) {
+export function AddJobModal({ show, setShow }) {
   // Setting up state/react-hook-form on form data
   const {
-    register,
+    control,
     handleSubmit,
-    // watch,
-    formState: { errors },
   } = useForm();
 
   const handleClose = () => setShow(false);
@@ -18,7 +16,6 @@ export function AddJobModal({show, setShow}) {
     // setAddJobData((prev) => [...prev, data]);
   };
   // console.log(watch("workOrderNumber")); // watch input value by passing the name of it
-
 
   // array of times to populate job length form options
   const jobTime = [];
@@ -39,24 +36,39 @@ export function AddJobModal({show, setShow}) {
                 })}
               </Form.Select> */}
           <Form.Label>Work Order Number</Form.Label>
-          <Form.Input
-            {...register("workOrderNumber", { required: true })}
-          ></Form.Input>
-          <Form.Label>Customer Name</Form.Label>
-          <Form.Input
-            {...register("customerName", { required: true })}
-          ></Form.Input>
-          <Form.Label>Job Description</Form.Label>
-          <Form.Input
-            {...register("jobDescription", { required: true })}
-          ></Form.Input>
-          <Form.Label>Job Length</Form.Label>
-          <Form.Select {...register("jobLength", { required: true })}>
-            {jobTime.map((timeDetails) => {
-              return <option>{timeDetails}</option>;
-            })}
-          </Form.Select>
-          {errors.exampleRequired && <span>This field is required</span>}
+          <Controller
+            control={control}
+            name="addJobModalFormController"
+            defaultValue=""
+            render={(fieldValue) => (
+              <>
+                <Form.Input
+                  {...fieldValue}
+                  type="text"
+                  name="workOrderNumber"
+                ></Form.Input>
+                <Form.Label>Customer Name</Form.Label>
+                <Form.Input
+                  {...fieldValue}
+                  type="text"
+                  name="customerName"
+                ></Form.Input>
+                <Form.Label>Job Description</Form.Label>
+                <Form.Input
+                  {...fieldValue}
+                  type="text"
+                  name="jobDescription"
+                ></Form.Input>
+                <Form.Label>Job Length</Form.Label>
+                <Form.Select {...fieldValue} name="jobLength">
+                  {jobTime.map((timeDetails) => {
+                    return <option>{timeDetails}</option>;
+                  })}
+                </Form.Select>
+              </>
+            )}
+            rules={{ required: true }}
+          ></Controller>
           <br></br>
           <br></br>
           <input
