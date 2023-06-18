@@ -42,7 +42,7 @@ export function AddJobModal({ show, setShow }) {
               <Form.Input
                 {...field}
                 type="text"
-                name="workOrderNumber"
+                name={field.name}
                 onChange={field.onChange}
                 value={field.value}
               ></Form.Input>
@@ -58,7 +58,7 @@ export function AddJobModal({ show, setShow }) {
               <Form.Input
                 {...field}
                 type="text"
-                name="customerName"
+                name={field.name}
                 onChange={field.onChange}
                 value={field.value}
               ></Form.Input>
@@ -74,7 +74,7 @@ export function AddJobModal({ show, setShow }) {
               <Form.Input
                 {...field}
                 type="text"
-                name="jobDescription"
+                name={field.name}
                 onChange={field.onChange}
                 value={field.value}
               ></Form.Input>
@@ -87,11 +87,15 @@ export function AddJobModal({ show, setShow }) {
             defaultValue=""
             rules={{ required: true }}
             render={(field) => (
-              <Form.Select {...field} name="jobLength" onChange={field.onChange} value={field.value}>
+              <Form.Select
+                {...field}
+                name={field.name}
+                onChange={field.onChange}
+                value={field.value}
+              >
                 {jobTime.map((timeDetails) => {
                   return <option>{timeDetails}</option>;
                 })}
-                
               </Form.Select>
             )}
           ></Controller>
