@@ -3,18 +3,15 @@ import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 
 export function AddJobModal({ show, setShow }) {
-  // Setting up state/react-hook-form on form data
   const methods = useForm();
   const { control, handleSubmit } = methods;
 
-  const handleClose = () => setShow(false);
-
   const onSubmit = (data) => {
     console.log(data);
-    // setAddJobData((prev) => [...prev, data]);
   };
   const onError = (errors) => console.log(errors);
-  // console.log(watch("workOrderNumber")); // watch input value by passing the name of it
+
+  const handleClose = () => setShow(false);
 
   // array of times to populate job length form options
   const jobTime = [];
@@ -39,7 +36,6 @@ export function AddJobModal({ show, setShow }) {
             <Controller
               control={control}
               name="workOrderNumber"
-              defaultValue=""
               rules={{ required: true }}
               render={(field) => (
                 <Form.Input
@@ -55,7 +51,6 @@ export function AddJobModal({ show, setShow }) {
             <Controller
               control={control}
               name="customerName"
-              defaultValue=""
               rules={{ required: true }}
               render={(field) => (
                 <Form.Input
@@ -71,7 +66,6 @@ export function AddJobModal({ show, setShow }) {
             <Controller
               control={control}
               name="jobDescription"
-              defaultValue=""
               rules={{ required: true }}
               render={(field) => (
                 <Form.Input
@@ -87,7 +81,6 @@ export function AddJobModal({ show, setShow }) {
             <Controller
               control={control}
               name="jobLength"
-              defaultValue=""
               rules={{ required: true }}
               render={(field) => (
                 <Form.Select
