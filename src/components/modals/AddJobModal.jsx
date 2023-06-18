@@ -1,13 +1,10 @@
-import { React } from "react";
+import React from "react";
 import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller } from "react-hook-form";
 
 export function AddJobModal({ show, setShow }) {
   // Setting up state/react-hook-form on form data
-  const {
-    control,
-    handleSubmit,
-  } = useForm();
+  const { control, handleSubmit } = useForm();
 
   const handleClose = () => setShow(false);
 
@@ -38,37 +35,67 @@ export function AddJobModal({ show, setShow }) {
           <Form.Label>Work Order Number</Form.Label>
           <Controller
             control={control}
-            name="addJobModalFormController"
+            name="workOrderNumber"
             defaultValue=""
-            render={(fieldValue) => (
-              <>
-                <Form.Input
-                  {...fieldValue}
-                  type="text"
-                  name="workOrderNumber"
-                ></Form.Input>
-                <Form.Label>Customer Name</Form.Label>
-                <Form.Input
-                  {...fieldValue}
-                  type="text"
-                  name="customerName"
-                ></Form.Input>
-                <Form.Label>Job Description</Form.Label>
-                <Form.Input
-                  {...fieldValue}
-                  type="text"
-                  name="jobDescription"
-                ></Form.Input>
-                <Form.Label>Job Length</Form.Label>
-                <Form.Select {...fieldValue} name="jobLength">
-                  {jobTime.map((timeDetails) => {
-                    return <option>{timeDetails}</option>;
-                  })}
-                </Form.Select>
-              </>
-            )}
             rules={{ required: true }}
+            render={(field) => (
+              <Form.Input
+                {...field}
+                type="text"
+                name="workOrderNumber"
+                onChange={field.onChange}
+                value={field.value}
+              ></Form.Input>
+            )}
           ></Controller>
+          <Form.Label>Customer Name</Form.Label>
+          <Controller
+            control={control}
+            name="customerName"
+            defaultValue=""
+            rules={{ required: true }}
+            render={(field) => (
+              <Form.Input
+                {...field}
+                type="text"
+                name="customerName"
+                onChange={field.onChange}
+                value={field.value}
+              ></Form.Input>
+            )}
+          ></Controller>
+          <Form.Label>Job Description</Form.Label>
+          <Controller
+            control={control}
+            name="jobDescription"
+            defaultValue=""
+            rules={{ required: true }}
+            render={(field) => (
+              <Form.Input
+                {...field}
+                type="text"
+                name="jobDescription"
+                onChange={field.onChange}
+                value={field.value}
+              ></Form.Input>
+            )}
+          ></Controller>
+          <Form.Label>Job Length</Form.Label>
+          <Controller
+            control={control}
+            name="jobLength"
+            defaultValue=""
+            rules={{ required: true }}
+            render={(field) => (
+              <Form.Select {...field} name="jobLength" onChange={field.onChange} value={field.value}>
+                {jobTime.map((timeDetails) => {
+                  return <option>{timeDetails}</option>;
+                })}
+                
+              </Form.Select>
+            )}
+          ></Controller>
+
           <br></br>
           <br></br>
           <input
