@@ -9,7 +9,6 @@ export function AddJobModal({ show, setShow }) {
   const onSubmit = (data) => {
     console.log(data);
   };
-  const onError = (errors) => console.log(errors);
 
   const handleClose = () => setShow(false);
 
@@ -23,7 +22,7 @@ export function AddJobModal({ show, setShow }) {
     <FormProvider {...methods}>
       <Modal show={show} setShow={setShow} onClose={handleClose}>
         <Modal.Content backgroundColor="white" showClose={true}>
-          <form onSubmit={handleSubmit(onSubmit, onError)} size={2}>
+          <form onSubmit={handleSubmit(onSubmit)} size={2}>
             {/* <Form.Label>Tech Name</Form.Label> */}
             {/* <Form.Select> 
               ---- Add this back in once I figure out how to have it be created within a specific
@@ -32,7 +31,7 @@ export function AddJobModal({ show, setShow }) {
                   return <option>{techDetails.name}</option>;
                 })}
               </Form.Select> */}
-            <Form.Label>Work Order Number</Form.Label>
+            <Form.Label for="workOrderNumber">Work Order Number</Form.Label>
             <Controller
               control={control}
               name="workOrderNumber"
@@ -47,7 +46,7 @@ export function AddJobModal({ show, setShow }) {
                 ></Form.Input>
               )}
             ></Controller>
-            <Form.Label>Customer Name</Form.Label>
+            <Form.Label for="customerName">Customer Name</Form.Label>
             <Controller
               control={control}
               name="customerName"
@@ -62,7 +61,7 @@ export function AddJobModal({ show, setShow }) {
                 ></Form.Input>
               )}
             ></Controller>
-            <Form.Label>Job Description</Form.Label>
+            <Form.Label for="jobDescription">Job Description</Form.Label>
             <Controller
               control={control}
               name="jobDescription"
@@ -77,7 +76,7 @@ export function AddJobModal({ show, setShow }) {
                 ></Form.Input>
               )}
             ></Controller>
-            <Form.Label>Job Length</Form.Label>
+            <Form.Label for="jobLength">Job Length</Form.Label>
             <Controller
               control={control}
               name="jobLength"
