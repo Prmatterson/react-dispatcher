@@ -1,10 +1,11 @@
 import React from "react";
 import { Modal, Form } from "react-bulma-components";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, FormProvider } from "react-hook-form";
 
 export function AddJobModal({ show, setShow }) {
   // Setting up state/react-hook-form on form data
-  const { control, handleSubmit } = useForm();
+  const methods = useForm();
+  const { control, handleSubmit } = methods
 
   const handleClose = () => setShow(false);
 
@@ -21,6 +22,7 @@ export function AddJobModal({ show, setShow }) {
   }
 
   return (
+    <FormProvider {...methods}>
     <Modal show={show} setShow={setShow} onClose={handleClose}>
       <Modal.Content backgroundColor="white" showClose={true}>
         <form onSubmit={handleSubmit(onSubmit)} size={2}>
@@ -118,5 +120,6 @@ export function AddJobModal({ show, setShow }) {
         </form>
       </Modal.Content>
     </Modal>
+    </FormProvider>
   );
 }
