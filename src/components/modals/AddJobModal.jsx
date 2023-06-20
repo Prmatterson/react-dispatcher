@@ -2,9 +2,7 @@ import { React, useState } from "react";
 import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 
-export function AddJobModal({ show, setShow }) {
-  const [formData, setFormData] = useState([]);
-
+export function AddJobModal({ show, setShow, formData, setFormData }) {
   const addFormData = (newData) => {
     setFormData([...formData, newData]);
   };
@@ -57,97 +55,93 @@ export function AddJobModal({ show, setShow }) {
     <>
       <FormProvider {...methods}>
         <Modal show={show} setShow={setShow} onClose={handleClose}>
-        <Modal.Content backgroundColor="white" showClose={true}>
-        <form onSubmit={handleSubmit} size={2}>
-          <Form.Label>Work Order Number</Form.Label>
-          <Controller
-            control={control}
-            name="workOrderNumber"
-            rules={{ required: true }}
-            render={(field) => (
-              <Form.Input
-                {...field}
-                type="text"
-                name={field.name}
-                onChange={handleWorkOrderNumberChange}
-                value={workOrderNumber}
-              ></Form.Input>
-            )}
-          ></Controller>
-          <Form.Label>Customer Name</Form.Label>
-          <Controller
-            control={control}
-            name="customerName"
-            rules={{ required: true }}
-            render={(field) => (
-              <Form.Input
-                {...field}
-                type="text"
-                name={field.name}
-                onChange={handleCustomerNameChange}
-                value={customerName}
-              ></Form.Input>
-            )}
-          ></Controller>
-          <Form.Label>Job Description</Form.Label>
-          <Controller
-            control={control}
-            name="jobDescription"
-            rules={{ required: true }}
-            render={(field) => (
-              <Form.Input
-                {...field}
-                type="text"
-                name={field.name}
-                onChange={handleJobDescriptionChange}
-                value={jobDescription}
-              ></Form.Input>
-            )}
-          ></Controller>
-          <Form.Label>Job Length</Form.Label>
-          <Controller
-            control={control}
-            name="jobLength"
-            rules={{ required: true }}
-            render={(field) => (
-              <Form.Select
-                {...field}
-                name={field.name}
-                onChange={handleJobLengthChange}
-                value={jobLength}
-              >
-                {jobTime.map((timeDetails) => {
-                  return <option>{timeDetails}</option>;
-                })}
-              </Form.Select>
-            )}
-          ></Controller>
+          <Modal.Content backgroundColor="white" showClose={true}>
+            <form onSubmit={handleSubmit} size={2}>
+              <Form.Label>Work Order Number</Form.Label>
+              <Controller
+                control={control}
+                name="workOrderNumber"
+                rules={{ required: true }}
+                render={(field) => (
+                  <Form.Input
+                    {...field}
+                    type="text"
+                    name={field.name}
+                    onChange={handleWorkOrderNumberChange}
+                    value={workOrderNumber}
+                  ></Form.Input>
+                )}
+              ></Controller>
+              <Form.Label>Customer Name</Form.Label>
+              <Controller
+                control={control}
+                name="customerName"
+                rules={{ required: true }}
+                render={(field) => (
+                  <Form.Input
+                    {...field}
+                    type="text"
+                    name={field.name}
+                    onChange={handleCustomerNameChange}
+                    value={customerName}
+                  ></Form.Input>
+                )}
+              ></Controller>
+              <Form.Label>Job Description</Form.Label>
+              <Controller
+                control={control}
+                name="jobDescription"
+                rules={{ required: true }}
+                render={(field) => (
+                  <Form.Input
+                    {...field}
+                    type="text"
+                    name={field.name}
+                    onChange={handleJobDescriptionChange}
+                    value={jobDescription}
+                  ></Form.Input>
+                )}
+              ></Controller>
+              <Form.Label>Job Length</Form.Label>
+              <Controller
+                control={control}
+                name="jobLength"
+                rules={{ required: true }}
+                render={(field) => (
+                  <Form.Select
+                    {...field}
+                    name={field.name}
+                    onChange={handleJobLengthChange}
+                    value={jobLength}
+                  >
+                    {jobTime.map((timeDetails) => {
+                      return <option>{timeDetails}</option>;
+                    })}
+                  </Form.Select>
+                )}
+              ></Controller>
 
-          <br></br>
-          <br></br>
-          <input
-            className="button"
-            type="submit"
-            renderAs="span"
-            value="Create Job"
-          />
-          <input
-            className="button"
-            type="cancel"
-            renderAs="span"
-            onClick={handleClose}
-            value="Cancel"
-          />
-        </form>
-        </Modal.Content>
+              <br></br>
+              <br></br>
+              <input
+                className="button"
+                type="submit"
+                // renderAs="span"
+                value="Create Job"
+              />
+              <input
+                className="button"
+                type="cancel"
+                // renderAs="span"
+                onClick={handleClose}
+                value="Cancel"
+              />
+            </form>
+          </Modal.Content>
         </Modal>
       </FormProvider>
-      {/* Need to have the below create a box, not a div below this form */}
-      <div>
-        {formData.map((formDatum, index) => (
-          <div key={index}>{JSON.stringify(formDatum)}</div>
-        ))}
-      </div>
+      {console.log(formData)}
+      {/* {formData.map((formDatum) => console.log(JSON.stringify(formDatum)))} */}
     </>
   );
 }

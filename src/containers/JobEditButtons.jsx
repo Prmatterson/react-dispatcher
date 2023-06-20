@@ -3,8 +3,7 @@ import { Box, Button } from "react-bulma-components";
 import { AddJobModal } from "../components/modals/AddJobModal";
 // import { techs } from "./drag-and-drop/TechGrid";
 
-export default function JobEditButtons({setAddJobData}) {
-
+export default function JobEditButtons(formData, setFormData) {
 
   // using state to open/close Modal
   const [show, setShow] = useState(false);
@@ -18,7 +17,7 @@ export default function JobEditButtons({setAddJobData}) {
           <Button onClick={handleOpen}>Add Job</Button>
         </Button.Group>
       </Box>
-      <AddJobModal show={show} setShow={setShow}/>
+      <AddJobModal formData={formData} setFormData={setFormData} show={show} setShow={setShow}/>
       <br></br>
     </>
   );
