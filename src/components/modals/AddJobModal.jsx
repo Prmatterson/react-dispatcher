@@ -36,6 +36,7 @@ export function AddJobModal({ show, setShow }) {
   }
 
   return (
+    <>
     <FormProvider {...methods}>
       {/* <Modal show={show} setShow={setShow} onClose={handleClose}> */}
         {/* <Modal.Content backgroundColor="white" showClose={true}> */}
@@ -131,6 +132,12 @@ export function AddJobModal({ show, setShow }) {
         {/* </Modal.Content> */}
       {/* </Modal> */}
     </FormProvider>
+    <div>
+      {formData.map((formDatum) => {
+        return <div>{formData.push(formDatum)}</div>
+      })}
+    </div>
+    </>
   );
 
 }
