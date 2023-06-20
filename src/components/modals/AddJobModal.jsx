@@ -1,16 +1,33 @@
-import React from "react";
+import { React, useState } from "react";
 import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 
 export function AddJobModal({ show, setShow }) {
-  const methods = useForm();
-  const { control, handleSubmit } = methods;
+  // Setting up form data
+  const [formData, setFormData] = useState([]);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const addFormData = (newData) => {
+    setFormData([...formData, newData]);
   };
 
+  const [inputValue, setInputValue] = useState("");
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+      console.log(formData);
+  }
+
+  const handleSubmit = (event) => {
+    addFormData(inputValue);
+  }
+
+  // const onSubmit = (formData) => {
+  //   addFormData(formData);
+  //   console.log(formData);
+  // };
+
   const handleClose = () => setShow(false);
+  const methods = useForm();
+  const { control } = methods;
 
   // array of times to populate job length form options
   const jobTime = [];
@@ -20,9 +37,9 @@ export function AddJobModal({ show, setShow }) {
 
   return (
     <FormProvider {...methods}>
-      <Modal show={show} setShow={setShow} onClose={handleClose}>
-        <Modal.Content backgroundColor="white" showClose={true}>
-          <form onSubmit={handleSubmit(onSubmit)} size={2}>
+      {/* <Modal show={show} setShow={setShow} onClose={handleClose}> */}
+        {/* <Modal.Content backgroundColor="white" showClose={true}> */}
+          <form onSubmit={handleSubmit} size={2}>
             {/* <Form.Label>Tech Name</Form.Label> */}
             {/* <Form.Select> 
               ---- Add this back in once I figure out how to have it be created within a specific
@@ -41,8 +58,8 @@ export function AddJobModal({ show, setShow }) {
                   {...field}
                   type="text"
                   name={field.name}
-                  onChange={field.onChange}
-                  value={field.value}
+                  onChange={handleInputChange}
+                  value={inputValue}
                 ></Form.Input>
               )}
             ></Controller>
@@ -56,8 +73,8 @@ export function AddJobModal({ show, setShow }) {
                   {...field}
                   type="text"
                   name={field.name}
-                  onChange={field.onChange}
-                  value={field.value}
+                  onChange={handleInputChange}
+                  value={inputValue}
                 ></Form.Input>
               )}
             ></Controller>
@@ -71,8 +88,8 @@ export function AddJobModal({ show, setShow }) {
                   {...field}
                   type="text"
                   name={field.name}
-                  onChange={field.onChange}
-                  value={field.value}
+                  onChange={handleInputChange}
+                  value={inputValue}
                 ></Form.Input>
               )}
             ></Controller>
@@ -85,8 +102,8 @@ export function AddJobModal({ show, setShow }) {
                 <Form.Select
                   {...field}
                   name={field.name}
-                  onChange={field.onChange}
-                  value={field.value}
+                  onChange={handleInputChange}
+                  value={inputValue}
                 >
                   {jobTime.map((timeDetails) => {
                     return <option>{timeDetails}</option>;
@@ -111,8 +128,9 @@ export function AddJobModal({ show, setShow }) {
               value="Cancel"
             />
           </form>
-        </Modal.Content>
-      </Modal>
+        {/* </Modal.Content> */}
+      {/* </Modal> */}
     </FormProvider>
   );
+
 }
