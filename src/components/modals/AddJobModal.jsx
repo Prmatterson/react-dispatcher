@@ -13,7 +13,6 @@ export function AddJobModal({ show, setShow }) {
   const [inputValue, setInputValue] = useState("");
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
-      console.log(formData);
   }
 
   const handleSubmit = (event) => {
@@ -134,7 +133,7 @@ export function AddJobModal({ show, setShow }) {
     </FormProvider>
     <div>
       {formData.map((formDatum) => {
-        return <div>{formData.push(formDatum)}</div>
+        return <div>{formData.push(formDatum)}</div> // This renders, but immediately disappears
       })}
     </div>
     </>
