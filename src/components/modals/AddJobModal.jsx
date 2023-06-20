@@ -1,9 +1,8 @@
 import { React, useState } from "react";
-import { Form } from "react-bulma-components";
+import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 
 export function AddJobModal({ show, setShow }) {
-  // Setting up form data
   const [formData, setFormData] = useState([]);
 
   const addFormData = (newData) => {
@@ -36,19 +35,13 @@ export function AddJobModal({ show, setShow }) {
       workOrderNumber,
       customerName,
       jobDescription,
-      jobLength
+      jobLength,
     });
     setWorkOrderNumber("");
     setCustomerName("");
     setJobDescription("");
     setJobLength("");
   };
-
-  // If the below is activated and onSubmit is placed within handleSubmit, a re-render loop is created
-    // const onSubmit = (formData) => {
-    //   addFormData(formData);
-    //   console.log(formData);
-    // };
 
   const handleClose = () => setShow(false);
   const methods = useForm();
@@ -63,8 +56,8 @@ export function AddJobModal({ show, setShow }) {
   return (
     <>
       <FormProvider {...methods}>
-        {/* <Modal show={show} setShow={setShow} onClose={handleClose}> */}
-        {/* <Modal.Content backgroundColor="white" showClose={true}> */}
+        <Modal show={show} setShow={setShow} onClose={handleClose}>
+        <Modal.Content backgroundColor="white" showClose={true}>
         <form onSubmit={handleSubmit} size={2}>
           <Form.Label>Work Order Number</Form.Label>
           <Controller
@@ -146,11 +139,12 @@ export function AddJobModal({ show, setShow }) {
             value="Cancel"
           />
         </form>
-        {/* </Modal.Content> */}
-        {/* </Modal> */}
+        </Modal.Content>
+        </Modal>
       </FormProvider>
+      {/* Need to have the below create a box, not a div below this form */}
       <div>
-      {formData.map((formDatum, index) => (
+        {formData.map((formDatum, index) => (
           <div key={index}>{JSON.stringify(formDatum)}</div>
         ))}
       </div>
