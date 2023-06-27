@@ -2,25 +2,30 @@ import { useState } from "react";
 import { DragAndDropLayer } from "./DragAndDropLayer";
 import { Columns } from "react-bulma-components";
 import Header from "./Header";
-import JobEditButtons from "./JobEditButtons"
+import JobEditButtons from "./JobEditButtons";
 import { AddJobModal } from "../components/modals/AddJobModal";
 
 export function TechGridContainer() {
   const [formData, setFormData] = useState([]);
-    const [showAddJobModal, setShowAddJobModal] = useState(false);
+  const [show, setShow] = useState(false);
 
-  console.log(formData)
+  console.log(formData);
 
   return (
     <div>
-      <Columns class='ml-6 mt-3'>
+      <Columns class="ml-6 mt-3">
         <Columns.Column>
           <Header />
-          <JobEditButtons setShowAddJobModal={setShowAddJobModal}/>
-          <AddJobModal formData={formData} setFormData={setFormData} showAddJobModal={showAddJobModal} setShowAddJobModal={setShowAddJobModal}/>
+          <JobEditButtons setShow={setShow} />
+          <AddJobModal
+            formData={formData}
+            setFormData={setFormData}
+            show={show}
+            setShow={setShow}
+          />
           <Columns>
             <Columns.Column size={12}>
-              <DragAndDropLayer formData={formData} setFormData={setFormData}/>
+              <DragAndDropLayer formData={formData} setFormData={setFormData} />
             </Columns.Column>
           </Columns>
         </Columns.Column>

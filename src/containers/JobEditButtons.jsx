@@ -2,7 +2,6 @@ import { Box, Button } from "react-bulma-components";
 // import { techs } from "./drag-and-drop/TechGrid";
 
 export default function JobEditButtons({ setShow }) {
-  
   const handleOpen = () => setShow(true);
 
   return (

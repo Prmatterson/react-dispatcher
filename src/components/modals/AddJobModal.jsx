@@ -1,7 +1,7 @@
 import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 
-export function AddJobModal({ showAddJobModal, setShowAddJobModal, formData, setFormData }) {
+export function AddJobModal({ show, setShow, formData, setFormData }) {
   const addFormData = (newData) => {
     setFormData([...formData, newData]);
   };
@@ -13,7 +13,7 @@ export function AddJobModal({ showAddJobModal, setShowAddJobModal, formData, set
     addFormData(data);
   };
 
-  const handleClose = () => setShowAddJobModal(false);
+  const handleClose = () => setShow(false);
 
   // array of times to populate job length form options
   const jobTime = [];
@@ -24,7 +24,7 @@ export function AddJobModal({ showAddJobModal, setShowAddJobModal, formData, set
   return (
     <>
       <FormProvider {...methods}>
-        <Modal showAddJobModal={showAddJobModal} setShowAddJobModal={setShowAddJobModal} onClose={handleClose}>
+        <Modal show={show} setShow={setShow} onClose={handleClose}>
           <Modal.Content backgroundColor="white" showClose={true}>
             <form onSubmit={handleSubmit(onSubmit)} size={2}>
               <Form.Label>Work Order Number</Form.Label>
