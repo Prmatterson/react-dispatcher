@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { DragAndDropLayer } from "./DragAndDropLayer";
 import { Columns } from "react-bulma-components";
 import Header from "./Header";

@@ -1,4 +1,3 @@
-import { React } from "react";
 import { TechGrid } from "../components/TechGrid";
 import { CustomDragLayer } from "./CustomDragLayer";
 import { DndProvider } from "react-dnd";

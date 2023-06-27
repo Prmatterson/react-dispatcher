@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Modal, Form } from "react-bulma-components";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 
@@ -115,7 +115,7 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
                     value={jobLength}
                   >
                     {jobTime.map((timeDetails) => {
-                      return <option>{timeDetails}</option>;
+                      return <option key={field.name}>{timeDetails}</option>;
                     })}
                   </Form.Select>
                 )}

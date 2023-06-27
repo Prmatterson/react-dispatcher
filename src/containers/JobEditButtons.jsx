@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Box, Button } from "react-bulma-components";
 import { AddJobModal } from "../components/modals/AddJobModal";
 // import { techs } from "./drag-and-drop/TechGrid";
