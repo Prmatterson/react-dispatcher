@@ -7,7 +7,7 @@ import { AddJobModal } from "../components/modals/AddJobModal";
 
 export function TechGridContainer() {
   const [formData, setFormData] = useState([]);
-    const [show, setShow] = useState(false);
+    const [showAddJobModal, setShowAddJobModal] = useState(false);
 
   console.log(formData)
 
@@ -16,8 +16,8 @@ export function TechGridContainer() {
       <Columns class='ml-6 mt-3'>
         <Columns.Column>
           <Header />
-          <JobEditButtons setShow={setShow}/>
-          <AddJobModal formData={formData} setFormData={setFormData} show={show} setShow={setShow}/>
+          <JobEditButtons setShowAddJobModal={setShowAddJobModal}/>
+          <AddJobModal formData={formData} setFormData={setFormData} showAddJobModal={showAddJobModal} setShowAddJobModal={setShowAddJobModal}/>
           <Columns>
             <Columns.Column size={12}>
               <DragAndDropLayer formData={formData} setFormData={setFormData}/>
