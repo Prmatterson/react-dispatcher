@@ -15,7 +15,7 @@ export function ControlledFormInputText({
         control={control}
         name={inputName}
         rules={{ required: required, ...rules }}
-        render={({ onChange, value }) => (
+        render={({ field: {onChange, value }}) => (
           <Form.Input
             value={value}
             type="text"

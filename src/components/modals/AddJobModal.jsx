@@ -10,6 +10,7 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
   const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data),
     addFormData(data);
   };
 
