@@ -7,11 +7,10 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
     setFormData([...formData, newData]);
   };
 
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data),
-    addFormData(data);
+    console.log(data), addFormData(data);
   };
 
   const handleClose = () => setShow(false);
@@ -24,39 +23,48 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
 
   return (
     <>
-      <FormProvider >
+      <FormProvider>
         <Modal show={show} setShow={setShow} onClose={handleClose}>
           <Modal.Content backgroundColor="white" showClose={true}>
             <form onSubmit={handleSubmit(onSubmit)} size={2}>
-              <ControlledFormInputText label="Work Order Number" inputName="workOrderNumber" control={control} />
-              <ControlledFormInputText label="Customer Name" inputName="customerName" control={control} />
-              <ControlledFormInputText label="Job Description" inputName="jobDescription" control={control} />
-              <ControlledFormInputText label="Job Length" inputName="jobLength" control={control} />
-   
-                {/* )}
-              ></Controller>
-              <Form.Label>Job Length</Form.Label>
-              <Controller
+              <ControlledFormInputText
+                label="Work Order Number"
+                inputName="workOrderNumber"
                 control={control}
-                name="jobLength"
-                rules={{ required: true }}
-                render={(field) => (
-                  <Form.Select type="text" onChange={field.onChange}>
-                    {jobTime.map((timeDetails) => {
-                      return <option key={field.name}>{timeDetails}</option>;
-                    })}
-                  </Form.Select>
-                )}
-              ></Controller> */}
-
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Customer Name"
+                inputName="customerName"
+                control={control}
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Job Description"
+                inputName="jobDescription"
+                control={control}
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Job Length"
+                inputName="jobLength"
+                control={control}
+                defaultValue=""
+              />
               <br></br>
               <br></br>
               <input className="button" type="submit" value="Create Job" />
               <input
                 className="button"
+                type="reset"
+                value="Reset"
+                onClick={reset}
+              />
+              <input
+                className="button"
                 type="cancel"
-                onClick={handleClose}
                 value="Cancel"
+                onClick={handleClose}
               />
             </form>
           </Modal.Content>
