@@ -1,13 +1,13 @@
-import { Modal, Form } from "react-bulma-components";
-import { useForm, Controller, FormProvider } from "react-hook-form";
+import { Modal } from "react-bulma-components";
+import { useForm, FormProvider } from "react-hook-form";
+import { ControlledFormInputText } from "./ControlledFormInputText";
 
 export function AddJobModal({ show, setShow, formData, setFormData }) {
   const addFormData = (newData) => {
     setFormData([...formData, newData]);
   };
 
-  const methods = useForm();
-  const { control, handleSubmit } = methods;
+  const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
     addFormData(data);
@@ -23,48 +23,16 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
 
   return (
     <>
-      <FormProvider {...methods}>
+      <FormProvider >
         <Modal show={show} setShow={setShow} onClose={handleClose}>
           <Modal.Content backgroundColor="white" showClose={true}>
             <form onSubmit={handleSubmit(onSubmit)} size={2}>
-              <Form.Label>Work Order Number</Form.Label>
-              <Controller
-                control={control}
-                name="workOrderNumber"
-                rules={{ required: true }}
-                render={(field) => (
-                  <Form.Input
-                    {...field}
-                    type="text"
-                    onChange={field.onChange}
-                  ></Form.Input>
-                )}
-              ></Controller>
-              <Form.Label>Customer Name</Form.Label>
-              <Controller
-                control={control}
-                name="customerName"
-                rules={{ required: true }}
-                render={(field) => (
-                  <Form.Input
-                    {...field}
-                    type="text"
-                    onChange={field.onChange}
-                  ></Form.Input>
-                )}
-              ></Controller>
-              <Form.Label>Job Description</Form.Label>
-              <Controller
-                control={control}
-                name="jobDescription"
-                rules={{ required: true }}
-                render={(field) => (
-                  <Form.Input
-                    {...field}
-                    type="text"
-                    onChange={field.onChange}
-                  ></Form.Input>
-                )}
+              <ControlledFormInputText label="Work Order Number" inputName="workOrderNumber" control={control} />
+              <ControlledFormInputText label="Customer Name" inputName="customerName" control={control} />
+              <ControlledFormInputText label="Job Description" inputName="jobDescription" control={control} />
+              <ControlledFormInputText label="Job Length" inputName="jobLength" control={control} />
+   
+                {/* )}
               ></Controller>
               <Form.Label>Job Length</Form.Label>
               <Controller
@@ -78,7 +46,7 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
                     })}
                   </Form.Select>
                 )}
-              ></Controller>
+              ></Controller> */}
 
               <br></br>
               <br></br>
