@@ -19,10 +19,27 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
   timeCell.push(<div>{i.toFixed(1)}</div>);
 }
 
-export const TechGrid = ({ snapToGrid }) => {
-  // This creates each individual job/box in the grid, will eventually need a function to create them
+export const TechGrid = ({ snapToGrid, formData }) => {
+  // This creates each individual job/box in the grid, will eventually need a function to create the
+
+  console.log(formData) // Need to map objects in array into function to create boxes
+  const formDataArray = Object.entries(formData)
+  console.log(formDataArray)
+
+  const workOrderNumber = formDataArray.map((item) => item.workOrderNumber)
+
+  console.log(workOrderNumber)
+
   const [boxes, setBoxes] = useState([
-    { top: 50, left: 175, width: 1000/techs.Length, workOrderNumber: "6009", customerName: "Bob", jobDescription: "Oil Change", height: "200px" },
+    {
+      top: 1,
+      left: 1,
+      width: 1000 / techs.Length,
+      workOrderNumber: 'workOrderNumber',
+      customerName: 'customerName',
+      jobDescription: 'jobDescription',
+      height: '10',
+    },
   ]);
 
   // This determines how the boxes move
@@ -66,15 +83,36 @@ export const TechGrid = ({ snapToGrid }) => {
         ))}
       </Columns>
       <Columns>
-        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
-        <div style={{ display: "flex", justifyContent: "space-evenly", textAlign: "center", width:"83%" }}>
+        <Columns.Column style={{ textAlign: "center" }} size={1}>
+          {timeCell}
+        </Columns.Column>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            textAlign: "center",
+            width: "83%",
+          }}
+        >
           {techs.map((techDetails) => {
-            return <Columns.Column key={techs.id} style={{border: "1px solid grey", margin: "1px", padding: "1px"}}>{techDetails.name}</Columns.Column>;
+            return (
+              <Columns.Column
+                key={techs.id}
+                style={{
+                  border: "1px solid grey",
+                  margin: "1px",
+                  padding: "1px",
+                }}
+              >
+                {techDetails.name}
+              </Columns.Column>
+            );
           })}
         </div>
-        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
+        <Columns.Column style={{ textAlign: "center" }} size={1}>
+          {timeCell}
+        </Columns.Column>
       </Columns>
-      
     </div>
   );
 };

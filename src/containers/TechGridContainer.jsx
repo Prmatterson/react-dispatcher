@@ -13,7 +13,7 @@ export function TechGridContainer() {
 
   return (
     <div>
-      <Columns class="ml-6 mt-3">
+      <Columns className="ml-6 mt-3">
         <Columns.Column>
           <Header />
           <JobEditButtons setShow={setShow} />
