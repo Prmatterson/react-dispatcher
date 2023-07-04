@@ -22,23 +22,40 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
 export const TechGrid = ({ snapToGrid, formData }) => {
   // This creates each individual job/box in the grid, will eventually need a function to create the
 
-  console.log(formData) // Need to map objects in array into function to create boxes
-  const formDataArray = Object.entries(formData)
+  console.log(formData); // Need to map objects in array into function to create boxes
+
+  const formDataArray = formData.formData
+
+  formDataArray.map((object) => {
+    const workOrderNumber = object.workOrderNumber;
+    const customerName = object.customerName;
+    const jobDescription = object.jobDescription;
+    const jobLength = object.jobLength;
+
+    console.log(workOrderNumber);
+    console.log(customerName); 
+    console.log(jobDescription); 
+    console.log(jobLength);
+  });
+
   console.log(formDataArray)
+  console.log(typeof formDataArray)
 
-  const workOrderNumber = formDataArray.map((item) => item.workOrderNumber)
-
-  console.log(workOrderNumber)
+  const { workOrderNumber, customerName, jobDescription, jobLength} = formDataArray
+  console.log(workOrderNumber);
+  console.log(customerName); 
+  console.log(jobDescription); 
+  console.log(jobLength);
 
   const [boxes, setBoxes] = useState([
     {
       top: 1,
       left: 1,
       width: 1000 / techs.Length,
-      workOrderNumber: 'workOrderNumber',
-      customerName: 'customerName',
-      jobDescription: 'jobDescription',
-      height: '10',
+      workOrderNumber: "workOrderNumber",
+      customerName: "customerName",
+      jobDescription: "jobDescription",
+      height: "10",
     },
   ]);
 
