@@ -1,24 +1,19 @@
-import { React, useState } from "react";
-import { Modal, Form } from "react-bulma-components";
-import { useForm } from "react-hook-form";
+import { Modal } from "react-bulma-components";
+import { useForm, FormProvider } from "react-hook-form";
+import { ControlledFormInputText } from "./ControlledFormInputText";
 
-export function AddJobModal() {
-  // Setting up state/react-hook-form on form data
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+export function AddJobModal({ show, setShow, addNewJob, unassignedJobs }) {
+  const { handleSubmit, control, reset } = useForm();
+
+  const createUnassignedJob = (newJob) => {
+    addNewJob([...unassignedJobs, newJob]);
+  };
 
   const onSubmit = (data) => {
-    console.log(data);
-    // setAddJobData((prev) => [...prev, data]);
+    console.log(data), createUnassignedJob(data);
   };
-  console.log(watch("workOrderNumber")); // watch input value by passing the name of it
 
-  const [isOpen, setIsOpen] = useState(false);
-  const handleIsClosed = () => setIsOpen(false);
+  const handleClose = () => setShow(false);
 
   // array of times to populate job length form options
   const jobTime = [];
@@ -27,53 +22,61 @@ export function AddJobModal() {
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={handleIsClosed}>
-      <Modal.Content backgroundColor="white" showClose={true}>
-        <form onSubmit={handleSubmit(onSubmit)} size={2}>
-          {/* <Form.Label>Tech Name</Form.Label> */}
-          {/* <Form.Select> 
-              ---- Add this back in once I figure out how to have it be created within a specific
-              column at a specific time (won't be able to overlap other existing jobs)----
-                {techs.map((techDetails) => {
-                  return <option>{techDetails.name}</option>;
-                })}
-              </Form.Select> */}
-          <Form.Label>Work Order Number</Form.Label>
-          <Form.Input
-            {...register("workOrderNumber", { required: true })}
-          ></Form.Input>
-          <Form.Label>Customer Name</Form.Label>
-          <Form.Input
-            {...register("customerName", { required: true })}
-          ></Form.Input>
-          <Form.Label>Job Description</Form.Label>
-          <Form.Input
-            {...register("jobDescription", { required: true })}
-          ></Form.Input>
-          <Form.Label>Job Length</Form.Label>
-          <Form.Select {...register("jobLength", { required: true })}>
-            {jobTime.map((timeDetails) => {
-              return <option>{timeDetails}</option>;
-            })}
-          </Form.Select>
-          {errors.exampleRequired && <span>This field is required</span>}
-          <br></br>
-          <br></br>
-          <input
-            class="button"
-            type="submit"
-            renderAs="span"
-            value="Create Job"
-          />
-          <input
-            class="button"
-            type="cancel"
-            renderAs="span"
-            onClick={handleIsClosed}
-            value="Cancel"
-          />
-        </form>
-      </Modal.Content>
-    </Modal>
+    <>
+      <FormProvider>
+        <Modal show={show} setShow={setShow} onClose={handleClose}>
+          <Modal.Content backgroundColor="white" showClose={true}>
+            <form onSubmit={handleSubmit(onSubmit)} size={2}>
+              <ControlledFormInputText
+                label="Work Order Number"
+                inputName="workOrderNumber"
+                control={control}
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Customer Name"
+                inputName="customerName"
+                control={control}
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Job Description"
+                inputName="jobDescription"
+                control={control}
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Job Length"
+                inputName="jobLength"
+                control={control}
+                defaultValue=""
+              />
+              <ControlledFormInputText
+                label="Promise Time"
+                inputName="promiseTime"
+                control={control}
+                defaultValue=""
+              />
+              <br></br>
+              <br></br>
+              <input className="button" type="submit" value="Create Job" />
+              <input
+                className="button"
+                type="reset"
+                value="Reset"
+                onClick={reset}
+              />
+              <input
+                className="button"
+                type="cancel"
+                value="Cancel"
+                onClick={handleClose}
+              />
+            </form>
+          </Modal.Content>
+        </Modal>
+      </FormProvider>
+      {console.log(addNewJob)}
+    </>
   );
 }

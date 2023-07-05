@@ -1,7 +1,7 @@
 import update from "immutability-helper";
 import { useCallback, useState } from "react";
 import { useDrop } from "react-dnd";
-import { DraggableBox } from "../components/DraggableBox";
+import { DraggableBox } from "./DraggableBox";
 import { ItemTypes } from "../constants/ItemTypes";
 import { snapToGrid as doSnapToGrid } from "../utils/snapToGrid";
 import { Columns } from "react-bulma-components";
@@ -19,10 +19,19 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
   timeCell.push(<div>{i.toFixed(1)}</div>);
 }
 
-export const TechGrid = ({ snapToGrid, addJobData }) => {
-  // This creates each individual job/box in the grid, will eventually need a function to create them
+export const TechGrid = ({ snapToGrid }) => {
+  // This creates each individual job/box in the grid, will eventually need a function to create the
+
   const [boxes, setBoxes] = useState([
-    { top: 24, left: 0, width: 1000/techs.Length, workOrderNumber: "6009", customerName: "Bob", jobDescription: "Oil Change", height: "200px" },
+    {
+      top: 1,
+      left: 1,
+      width: 1000 / techs.Length,
+      workOrderNumber: "workOrderNumber",
+      customerName: "customerName",
+      jobDescription: "jobDescription",
+      height: "10",
+    },
   ]);
 
   // This determines how the boxes move
@@ -61,20 +70,55 @@ export const TechGrid = ({ snapToGrid, addJobData }) => {
   return (
     <div ref={drop}>
       <Columns>
-        {boxes.map((boxData, index) => (
-          <DraggableBox key={index} id={index} {...boxData} />
-        ))}
+        <Columns.Column
+          style={{
+            border: "1px solid grey",
+            margin: "1px",
+            padding: "1px",
+          }}
+        >
+          {boxes.map((boxData, index) => (
+            <DraggableBox key={index} id={index} {...boxData} />
+          ))}
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+        </Columns.Column>
       </Columns>
+      <br></br>
+      <br></br>
       <Columns>
-        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
-        <div style={{ display: "flex", justifyContent: "space-evenly", textAlign: "center", width:"83%" }}>
+        <Columns.Column style={{ textAlign: "center" }} size={1}>
+          {timeCell}
+        </Columns.Column>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            textAlign: "center",
+            width: "83%",
+          }}
+        >
           {techs.map((techDetails) => {
-            return <Columns.Column style={{border: "1px solid grey", margin: "1px", padding: "1px"}}>{techDetails.name}</Columns.Column>;
+            return (
+              <Columns.Column
+                key={techs.id}
+                style={{
+                  border: "1px solid grey",
+                  margin: "1px",
+                  padding: "1px",
+                }}
+              >
+                {techDetails.name}
+              </Columns.Column>
+            );
           })}
         </div>
-        <Columns.Column style={{textAlign: "center"}} size={1}>{timeCell}</Columns.Column>
+        <Columns.Column style={{ textAlign: "center" }} size={1}>
+          {timeCell}
+        </Columns.Column>
       </Columns>
-      
     </div>
   );
 };

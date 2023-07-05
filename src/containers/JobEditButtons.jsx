@@ -1,20 +1,17 @@
-import React from 'react';
-import { Box, Button } from 'react-bulma-components';
-import { AddJobModal } from '../components/modals/AddJobModal';
+import { Box, Button } from "react-bulma-components";
 // import { techs } from "./drag-and-drop/TechGrid";
 
-export default function JobEditButtons(setAddJobData) {
-  // using state to open/close Modal
+export default function JobEditButtons({ setShow }) {
+  const handleOpen = () => setShow(true);
 
   return (
     <>
       {/* Button in toolbar that opens modal */}
       <Box>
         <Button.Group>
-          <Button>Add Job</Button>
+          <Button onClick={handleOpen}>Add Job</Button>
         </Button.Group>
       </Box>
-      <AddJobModal />
       <br></br>
     </>
   );
