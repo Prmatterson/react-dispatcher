@@ -8,6 +8,7 @@ import { AddJobModal } from "../components/modals/AddJobModal";
 export function TechGridContainer() {
   const [formData, setFormData] = useState([]);
   const [show, setShow] = useState(false);
+  const [unassignedJobs, setUnassignedJobs] = useState([])
 
   console.log(formData);
 
@@ -18,8 +19,8 @@ export function TechGridContainer() {
           <Header />
           <JobEditButtons setShow={setShow} />
           <AddJobModal
-            formData={formData}
-            setFormData={setFormData}
+            addNewJob={unassignedJobs}
+            setUnassignedJobs={setUnassignedJobs}
             show={show}
             setShow={setShow}
           />

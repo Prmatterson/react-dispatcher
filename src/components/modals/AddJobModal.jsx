@@ -2,15 +2,11 @@ import { Modal } from "react-bulma-components";
 import { useForm, FormProvider } from "react-hook-form";
 import { ControlledFormInputText } from "./ControlledFormInputText";
 
-export function AddJobModal({ show, setShow, formData, setFormData }) {
-  const addFormData = (newData) => {
-    setFormData([...formData, newData]);
-  };
-
+export function AddJobModal({ show, setShow, addNewJob }) {
   const { handleSubmit, control, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data), addFormData(data);
+    console.log(data), addNewJob(data);
   };
 
   const handleClose = () => setShow(false);
@@ -51,6 +47,12 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
                 control={control}
                 defaultValue=""
               />
+              <ControlledFormInputText
+                label="Promise Time"
+                inputName="promiseTime"
+                control={control}
+                defaultValue=""
+              />
               <br></br>
               <br></br>
               <input className="button" type="submit" value="Create Job" />
@@ -70,7 +72,7 @@ export function AddJobModal({ show, setShow, formData, setFormData }) {
           </Modal.Content>
         </Modal>
       </FormProvider>
-      {console.log(formData)}
+      {console.log(addNewJob)}
       {/* {formData.map((formDatum) => console.log(JSON.stringify(formDatum)))} */}
     </>
   );
