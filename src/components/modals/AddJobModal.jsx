@@ -6,9 +6,9 @@ export function AddJobModal({ show, setShow, addNewJob, unassignedJobs }) {
   const { handleSubmit, control, reset } = useForm();
 
   const createUnassignedJob = (newJob) => {
-    addNewJob([...unassignedJobs, newJob])
-  }
-  
+    addNewJob([...unassignedJobs, newJob]);
+  };
+
   const onSubmit = (data) => {
     console.log(data), createUnassignedJob(data);
   };

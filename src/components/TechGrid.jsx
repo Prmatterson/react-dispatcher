@@ -70,10 +70,24 @@ export const TechGrid = ({ snapToGrid }) => {
   return (
     <div ref={drop}>
       <Columns>
-        {boxes.map((boxData, index) => (
-          <DraggableBox key={index} id={index} {...boxData} />
-        ))}
+        <Columns.Column
+          style={{
+            border: "1px solid grey",
+            margin: "1px",
+            padding: "1px",
+          }}
+        >
+          {boxes.map((boxData, index) => (
+            <DraggableBox key={index} id={index} {...boxData} />
+          ))}
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+        </Columns.Column>
       </Columns>
+      <br></br>
+      <br></br>
       <Columns>
         <Columns.Column style={{ textAlign: "center" }} size={1}>
           {timeCell}
