@@ -6,11 +6,14 @@ import JobEditButtons from "./JobEditButtons";
 import { AddJobModal } from "../components/modals/AddJobModal";
 
 export function TechGridContainer() {
-  const [formData, setFormData] = useState([]);
   const [show, setShow] = useState(false);
-  const [unassignedJobs, setUnassignedJobs] = useState([])
+  const [allTechJobs, setAllTechJobs] = useState([]);
+  const [unassignedJobs, setUnassignedJobs] = useState([]);
+  // const [dispatchedJobs, setDispatchedJobs] = useState([]);
 
-  console.log(formData);
+  console.log(unassignedJobs);
+  // console.log(dispatchedJobs);
+  // console.log(setDispatchedJobs);
 
   return (
     <div>
@@ -19,14 +22,17 @@ export function TechGridContainer() {
           <Header />
           <JobEditButtons setShow={setShow} />
           <AddJobModal
-            addNewJob={unassignedJobs}
-            setUnassignedJobs={setUnassignedJobs}
+            addNewJob={setUnassignedJobs}
+            unassignedJobs={unassignedJobs}
             show={show}
             setShow={setShow}
           />
           <Columns>
             <Columns.Column size={12}>
-              <DragAndDropLayer formData={formData} setFormData={setFormData} />
+              <DragAndDropLayer
+                allTechJobs={allTechJobs}
+                setAllTechJobs={setAllTechJobs}
+              />
             </Columns.Column>
           </Columns>
         </Columns.Column>
