@@ -2,16 +2,16 @@ import { Modal } from "react-bulma-components";
 import { useForm, FormProvider } from "react-hook-form";
 import { ControlledFormInputText } from "./ControlledFormInputText";
 
-export function DeleteUnassignedJobModal({ show, setShow, deleteJob, unassignedJobs }) {
+export function AddDispatchedJobModal({ show, setShow, addDispatchedJob, dispatchedJobs, removeUnassignedJob, unassignedJob }) {
   const { handleSubmit, control, reset } = useForm();
 
-  const deleteUnassignedJob = () => {
-    // deleteJob(unassignedJobs.filter((job) => job.id != idToDelete)) function does not yet work
-    console.log(unassignedJobs);
+  const createDispatchedJob = (dispatchedJob) => {
+    removeUnassignedJob(unassignedJob.filter((unassignedJob) => unassignedJob.id !== dispatchedJob.id));
+    addDispatchedJob([...dispatchedJobs, dispatchedJob]);
   };
 
   const onSubmit = (data) => {
-    console.log(data), deleteUnassignedJob(data);
+    console.log(data), createDispatchedJob(data.workOrderNumber);
   };
 
   const handleClose = () => setShow(false);
@@ -30,7 +30,7 @@ export function DeleteUnassignedJobModal({ show, setShow, deleteJob, unassignedJ
               />
               <br></br>
               <br></br>
-              <input className="button" type="submit" value="Delete Job" />
+              <input className="button" type="submit" value="Create Job" />
               <input
                 className="button"
                 type="reset"
@@ -47,7 +47,7 @@ export function DeleteUnassignedJobModal({ show, setShow, deleteJob, unassignedJ
           </Modal.Content>
         </Modal>
       </FormProvider>
-      {console.log(deleteJob)}
+      {console.log(addDispatchedJob)}
     </>
   );
 }

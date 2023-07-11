@@ -5,17 +5,19 @@ import Header from "./Header";
 import JobEditButtons from "./JobEditButtons";
 import { AddJobModal } from "../components/modals/AddJobModal";
 import { DeleteUnassignedJobModal } from "../components/modals/DeleteUnassignedjobModal";
+import { AddDispatchedJobModal } from "../components/modals/AddDispatchedJobModal";
 
 export function TechGridContainer() {
   const [showAddJobModal, setShowAddJobModal] = useState(false);
   const [showDeleteUnassignedJobModal, setShowDeleteUnassignedJobModal] =
     useState(false);
+  const [showAddDispatchedJobModal, setShowAddDispatchedJobModal] =
+    useState(false);
   const [allTechJobs, setAllTechJobs] = useState([]); // Array that holds all jobs, with each subcategory being a separate array within it
   const [unassignedJobs, setUnassignedJobs] = useState([]);
-  // const [dispatchedJobs, setDispatchedJobs] = useState([]);
+  const [dispatchedJobs, setDispatchedJobs] = useState([]);
 
   console.log(unassignedJobs);
-
 
   return (
     <div>
@@ -25,6 +27,7 @@ export function TechGridContainer() {
           <JobEditButtons
             setShowAddJobModal={setShowAddJobModal}
             setShowDeleteUnassignedJobModal={setShowDeleteUnassignedJobModal}
+            setShowAddDispatchedJobModal={setShowAddDispatchedJobModal}
           />
           <AddJobModal
             addNewJob={setUnassignedJobs}
@@ -37,6 +40,14 @@ export function TechGridContainer() {
             unassignedJobs={unassignedJobs}
             show={showDeleteUnassignedJobModal}
             setShow={setShowDeleteUnassignedJobModal}
+          />
+          <AddDispatchedJobModal
+            addDispatchedJob={setDispatchedJobs}
+            dispatchedJobs={dispatchedJobs}
+            unassignedJob={unassignedJobs}
+            removeUnassignedJob={setUnassignedJobs}
+            show={showAddDispatchedJobModal}
+            setShow={setShowAddDispatchedJobModal}
           />
           <Columns>
             <Columns.Column size={12}>
