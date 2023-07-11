@@ -2,7 +2,7 @@ import { Modal } from "react-bulma-components";
 import { useForm, FormProvider } from "react-hook-form";
 import { ControlledFormInputText } from "./ControlledFormInputText";
 
-export function AddJobModal({ show, setShow, addNewJob, unassignedJobs }) {
+export function AddUnassignedJobModal({ show, setShow, addNewJob, unassignedJobs }) {
   const { handleSubmit, control, reset } = useForm();
 
   const createUnassignedJob = (newJob) => {

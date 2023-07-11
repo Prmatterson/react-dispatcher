@@ -2,12 +2,14 @@ import { Modal } from "react-bulma-components";
 import { useForm, FormProvider } from "react-hook-form";
 import { ControlledFormInputText } from "./ControlledFormInputText";
 
-export function AddDispatchedJobModal({ show, setShow, addDispatchedJob, dispatchedJobs, removeUnassignedJob, unassignedJob }) {
+export function AddDispatchedJobModal({ show, setShow, addDispatchedJob }) {
   const { handleSubmit, control, reset } = useForm();
 
-  const createDispatchedJob = (dispatchedJob) => {
-    removeUnassignedJob(unassignedJob.filter((unassignedJob) => unassignedJob.id !== dispatchedJob.id));
-    addDispatchedJob([...dispatchedJobs, dispatchedJob]);
+  const createDispatchedJob = () => {
+    // removeUnassignedJob(unassignedJob.filter((unassignedJob) => unassignedJob.id != dispatchedJob.id));
+    // addDispatchedJob([...dispatchedJobs, dispatchedJob]);
+    console.log(createDispatchedJob)
+    // dispatchedJobs, removeUnassignedJob, unassignedJob
   };
 
   const onSubmit = (data) => {

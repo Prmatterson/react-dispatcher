@@ -3,12 +3,12 @@ import { DragAndDropLayer } from "./DragAndDropLayer";
 import { Columns } from "react-bulma-components";
 import Header from "./Header";
 import JobEditButtons from "./JobEditButtons";
-import { AddJobModal } from "../components/modals/AddJobModal";
+import { AddUnassignedJobModal } from "../components/modals/AddUnassignedJobModal";
 import { DeleteUnassignedJobModal } from "../components/modals/DeleteUnassignedjobModal";
 import { AddDispatchedJobModal } from "../components/modals/AddDispatchedJobModal";
 
 export function TechGridContainer() {
-  const [showAddJobModal, setShowAddJobModal] = useState(false);
+  const [showAddUnassignedJobModal, setShowAddUnassignedJobModal] = useState(false);
   const [showDeleteUnassignedJobModal, setShowDeleteUnassignedJobModal] =
     useState(false);
   const [showAddDispatchedJobModal, setShowAddDispatchedJobModal] =
@@ -25,15 +25,15 @@ export function TechGridContainer() {
         <Columns.Column>
           <Header />
           <JobEditButtons
-            setShowAddJobModal={setShowAddJobModal}
+            setShowAddJobModal={setShowAddUnassignedJobModal}
             setShowDeleteUnassignedJobModal={setShowDeleteUnassignedJobModal}
             setShowAddDispatchedJobModal={setShowAddDispatchedJobModal}
           />
-          <AddJobModal
+          <AddUnassignedJobModal
             addNewJob={setUnassignedJobs}
             unassignedJobs={unassignedJobs}
-            show={showAddJobModal}
-            setShow={setShowAddJobModal}
+            show={showAddUnassignedJobModal}
+            setShow={setShowAddUnassignedJobModal}
           />
           <DeleteUnassignedJobModal
             deleteJob={setUnassignedJobs}
