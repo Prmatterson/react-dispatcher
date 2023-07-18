@@ -33,7 +33,6 @@ export function TechGridContainer() {
             setShowDeleteUnassignedJobModal={setShowDeleteUnassignedJobModal}
             setShowAddDispatchedJobModal={setShowAddDispatchedJobModal}
           />
-          console.log({AddDispatchedJobModal})
           <AddUnassignedJobModal
             addNewJob={setUnassignedJobs}
             unassignedJobs={unassignedJobs}
