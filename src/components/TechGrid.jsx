@@ -19,7 +19,7 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
   timeCell.push(<div>{i.toFixed(1)}</div>);
 }
 
-export const TechGrid = ({ snapToGrid }) => {
+export const TechGrid = ({ snapToGrid, allTechJobs }) => {
   // This creates each individual job/box in the grid, will eventually need a function to create the
 
   const [boxes, setBoxes] = useState([
@@ -31,8 +31,10 @@ export const TechGrid = ({ snapToGrid }) => {
       customerName: "customerName",
       jobDescription: "jobDescription",
       height: "10",
+      allTechJobs,
     },
   ]);
+  console.log(boxes)
 
   // This determines how the boxes move
   const moveBox = useCallback(

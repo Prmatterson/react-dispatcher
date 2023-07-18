@@ -10,10 +10,10 @@ export function DeleteUnassignedJobModal({
 }) {
   const { handleSubmit, control, reset } = useForm();
 
-  const deleteUnassignedJob = (workOrderNumberToDelete) => {
+  const deleteUnassignedJob = (jobToDelete) => {
     deleteJob(
       unassignedJobs.filter(
-        job => job.workOrderNumber != workOrderNumberToDelete
+        job => job.workOrderNumber != jobToDelete
       )
     );
     console.log(unassignedJobs);
