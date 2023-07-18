@@ -10,7 +10,8 @@ export function DeleteUnassignedJobModal({
 }) {
   const { handleSubmit, control, reset } = useForm();
 
-  const deleteUnassignedJob = (jobToDelete) => {
+  const deleteUnassignedJob = (data) => {
+    const jobToDelete = data.workOrderNumber
     deleteJob(
       unassignedJobs.filter(
         job => job.workOrderNumber != jobToDelete
