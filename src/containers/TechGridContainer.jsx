@@ -29,10 +29,11 @@ export function TechGridContainer() {
         <Columns.Column>
           <Header />
           <JobEditButtons
-            setShowAddJobModal={setShowAddUnassignedJobModal}
+            setShowAddUnassignedJobModal={setShowAddUnassignedJobModal}
             setShowDeleteUnassignedJobModal={setShowDeleteUnassignedJobModal}
             setShowAddDispatchedJobModal={setShowAddDispatchedJobModal}
           />
+          console.log({AddDispatchedJobModal})
           <AddUnassignedJobModal
             addNewJob={setUnassignedJobs}
             unassignedJobs={unassignedJobs}
@@ -58,6 +59,7 @@ export function TechGridContainer() {
               <DragAndDropLayer
                 allTechJobs={allTechJobs}
                 setAllTechJobs={setAllTechJobs}
+                unassignedJobs={unassignedJobs}
               />
             </Columns.Column>
           </Columns>
