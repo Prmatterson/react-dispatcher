@@ -2,11 +2,11 @@ import { Box, Button } from "react-bulma-components";
 // import { techs } from "./drag-and-drop/TechGrid";
 
 export default function JobEditButtons({
-  setShowAddJobModal,
+  setShowAddUnassignedJobModal,
   setShowDeleteUnassignedJobModal,
   setShowAddDispatchedJobModal,
 }) {
-  const handleOpenAddJob = () => setShowAddJobModal(true);
+  const handleOpenAddUnassignedJob = () => setShowAddUnassignedJobModal(true);
   const handleOpenDeleteUnassignedJob = () =>
     setShowDeleteUnassignedJobModal(true);
   const handleOpenAddDispatchedJob = () => setShowAddDispatchedJobModal(true);
@@ -16,7 +16,7 @@ export default function JobEditButtons({
       {/* Button in toolbar that opens modal */}
       <Box>
         <Button.Group>
-          <Button onClick={handleOpenAddJob}>Add Unassigned Job</Button>
+          <Button onClick={handleOpenAddUnassignedJob}>Add Unassigned Job</Button>
           <Button onClick={handleOpenDeleteUnassignedJob}>Delete Unassigned Job</Button>
           <Button onClick={handleOpenAddDispatchedJob}>Add Dispatched Job</Button>
         </Button.Group>
