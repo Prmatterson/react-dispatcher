@@ -14,11 +14,13 @@ export function AddUnassignedJobModal({
     addNewJob([...unassignedJobs, newJob]);
   };
 
-  const onSubmit = (data) => {
-    console.log(data), createUnassignedJob(data);
-  };
-
   const handleClose = () => setShow(false);
+
+  const onSubmit = (data) => {
+    console.log(data); 
+    createUnassignedJob(data);
+    handleClose();
+  };
 
   // array of times to populate job length form options
   const jobTime = [];

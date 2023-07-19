@@ -47,8 +47,8 @@ export function TechGridContainer() {
           <Columns>
             <Columns.Column size={12}>
               <DragAndDropLayer
-                allTechJobs={allTechJobs}
-                setAllTechJobs={setAllTechJobs}
+                // allTechJobs={allTechJobs}
+                // setAllTechJobs={setAllTechJobs}
                 unassignedJobs={unassignedJobs}
               />
             </Columns.Column>
