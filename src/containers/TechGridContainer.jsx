@@ -16,10 +16,9 @@ export function TechGridContainer() {
     useState(false);
 
   const [unassignedJobs, setUnassignedJobs] = useState([]);
-  const [allTechJobs, setAllTechJobs] = useState([{ ...unassignedJobs }]); // Array that holds all jobs, with each subcategory being a separate array within it
+  // const [allTechJobs, setAllTechJobs] = useState([{ ...unassignedJobs }]); // Array that holds all jobs, with each subcategory being a separate array within it
 
   console.log(unassignedJobs);
-  console.log(allTechJobs);
 
   return (
     <div>
