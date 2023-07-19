@@ -2,26 +2,11 @@ import { Modal } from "react-bulma-components";
 import { useForm, FormProvider } from "react-hook-form";
 import { ControlledFormInputText } from "./ControlledFormInputText";
 
-export function DeleteUnassignedJobModal({
-  show,
-  setShow,
-  deleteJob,
-  unassignedJobs,
-}) {
+export function DeleteUnassignedJobModal({ show, setShow }) {
   const { handleSubmit, control, reset } = useForm();
 
-  const deleteUnassignedJob = (data) => {
-    const jobToDelete = data.workOrderNumber
-    deleteJob(
-      unassignedJobs.filter(
-        job => job.workOrderNumber != jobToDelete
-      )
-    );
-    console.log(unassignedJobs);
-  };
-
   const onSubmit = (data) => {
-    console.log(data), deleteUnassignedJob(data);
+    console.log(data)
   };
 
   const handleClose = () => setShow(false);
@@ -57,7 +42,6 @@ export function DeleteUnassignedJobModal({
           </Modal.Content>
         </Modal>
       </FormProvider>
-      {console.log(deleteJob)}
     </>
   );
 }
