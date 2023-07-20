@@ -28,6 +28,7 @@ export function TechGridContainer() {
     );
   };
 
+
   return (
     <div>
       <Columns className="ml-6 mt-3">
@@ -60,7 +61,6 @@ export function TechGridContainer() {
         </Columns.Column>
       </Columns>
       {console.log("Unassigned Jobs", unassignedJobs)}
-      {console.log("Unassigned Jobs an Array?", unassignedJobs.isArray)}
     </div>
   );
 }
