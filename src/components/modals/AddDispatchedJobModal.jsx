@@ -8,6 +8,7 @@ export function AddDispatchedJobModal({ show, setShow }) {
 
   const onSubmit = (data) => {
     console.log(data);
+    handleClose();
   };
 
   const handleClose = () => setShow(false);

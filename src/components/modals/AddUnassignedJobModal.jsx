@@ -5,14 +5,10 @@ import { ControlledFormInputText } from "./ControlledFormInputText";
 export function AddUnassignedJobModal({
   show,
   setShow,
-  addNewJob,
-  unassignedJobs,
+  createUnassignedJob,
 }) {
   const { handleSubmit, control, reset } = useForm();
 
-  const createUnassignedJob = (newJob) => {
-    addNewJob([...unassignedJobs, newJob]);
-  };
 
   const handleClose = () => setShow(false);
 
@@ -83,7 +79,7 @@ export function AddUnassignedJobModal({
           </Modal.Content>
         </Modal>
       </FormProvider>
-      {console.log(addNewJob)}
+      {console.log(createUnassignedJob)}
     </>
   );
 }
