@@ -7,7 +7,7 @@ export function DeleteUnassignedJobModal({ show, setShow, deleteUnassignedJob })
 
   const onSubmit = (data) => {
     console.log(data);
-    deleteUnassignedJob(data.workOrderNumber)
+    deleteUnassignedJob(data.workOrderNumber);
     handleClose();
   };
 
