@@ -60,6 +60,7 @@ export function TechGridContainer() {
         </Columns.Column>
       </Columns>
       {console.log("Unassigned Jobs", unassignedJobs)}
+      {console.log("Unassigned Jobs an Array?", unassignedJobs.isArray)}
     </div>
   );
 }
