@@ -79,7 +79,6 @@ export function AddUnassignedJobModal({
           </Modal.Content>
         </Modal>
       </FormProvider>
-      {console.log(createUnassignedJob)}
     </>
   );
 }
