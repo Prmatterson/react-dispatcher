@@ -16,14 +16,16 @@ export function TechGridContainer() {
     useState(false);
 
   const [unassignedJobs, setUnassignedJobs] = useState([]);
-  // const [allTechJobs, setAllTechJobs] = useState([{ ...unassignedJobs }]); // Array that holds all jobs, with each subcategory being a separate array within it
 
   const createUnassignedJob = (newJob) => {
     setUnassignedJobs([...unassignedJobs, newJob]);
   };
-
   const deleteUnassignedJob = (jobToDeleteWorkOrderNumber) => {
-    setUnassignedJobs(unassignedJobs.filter((job => job.workOrderNumber != jobToDeleteWorkOrderNumber)));
+    setUnassignedJobs(
+      unassignedJobs.filter(
+        (job) => job.workOrderNumber != jobToDeleteWorkOrderNumber
+      )
+    );
   };
 
   return (
@@ -38,8 +40,6 @@ export function TechGridContainer() {
           />
           <AddUnassignedJobModal
             createUnassignedJob={createUnassignedJob}
-            addNewJob={setUnassignedJobs}
-            unassignedJobs={unassignedJobs}
             show={showAddUnassignedJobModal}
             setShow={setShowAddUnassignedJobModal}
           />
@@ -54,11 +54,7 @@ export function TechGridContainer() {
           />
           <Columns>
             <Columns.Column size={12}>
-              <DragAndDropLayer
-                // allTechJobs={allTechJobs}
-                // setAllTechJobs={setAllTechJobs}
-                unassignedJobs={unassignedJobs}
-              />
+              <DragAndDropLayer unassignedJobs={unassignedJobs} />
             </Columns.Column>
           </Columns>
         </Columns.Column>
