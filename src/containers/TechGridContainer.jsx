@@ -29,6 +29,8 @@ export function TechGridContainer() {
     );
   };
 
+  // Put jobBoxes, updateBoxes here and pass down?
+  
   return (
     <div>
       <Columns className="ml-6 mt-3">
