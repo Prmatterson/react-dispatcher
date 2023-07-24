@@ -4,13 +4,14 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Columns } from "react-bulma-components";
 
-export const DragAndDropLayer = () => {
+export const DragAndDropLayer = (unassignedJobs) => {
+  {console.log(Array.isArray(unassignedJobs))}
 
   return (
     <DndProvider backend={HTML5Backend}>
       <Columns>
         <Columns.Column size={12}>
-          <TechGrid snapToGrid={true}/>
+          <TechGrid snapToGrid={true} unassignedJobs={unassignedJobs}/>
         </Columns.Column>
       </Columns>
       <CustomDragLayer snapToGrid={true} />

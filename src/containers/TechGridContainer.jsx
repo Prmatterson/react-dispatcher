@@ -16,6 +16,7 @@ export function TechGridContainer() {
     useState(false);
 
   const [unassignedJobs, setUnassignedJobs] = useState([]);
+  {console.log(Array.isArray(unassignedJobs))}
 
   const createUnassignedJob = (newJob) => {
     setUnassignedJobs([...unassignedJobs, newJob]);
@@ -27,7 +28,6 @@ export function TechGridContainer() {
       )
     );
   };
-
 
   return (
     <div>
@@ -60,7 +60,7 @@ export function TechGridContainer() {
           </Columns>
         </Columns.Column>
       </Columns>
-      {console.log("Unassigned Jobs", unassignedJobs)}
+      {console.log("Unassigned Jobs in TechGridContainer", unassignedJobs)}
     </div>
   );
 }
