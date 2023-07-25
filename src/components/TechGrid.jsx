@@ -1,5 +1,5 @@
 import update from "immutability-helper";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useDrop } from "react-dnd";
 import { DraggableBox } from "./DraggableBox";
 import { ItemTypes } from "../constants/ItemTypes";
@@ -25,28 +25,22 @@ export const TechGrid = ({ snapToGrid, unassignedJobs }) => {
 
   const [boxes, setBoxes] = useState([]);
 
-  const jobBoxData = (arrayData) => {
-    setBoxes([
-      boxes,
-      arrayData.map(
-        (jobData) =>
-          (jobData = {
-            top: 1,
-            left: 1,
-            width: 1000 / techs.length,
-            workOrderNumber: jobData.workOrderNumber,
-            customerName: jobData.customerName,
-            jobDescription: jobData.jobDescription,
-            height: jobData.jobLength,
-            promiseTime: jobData.promiseTime,
-          })
-      ),
-    ]);
-  };
+  useEffect(() => {
+    const jobBoxData = (arrayData) => {
+      return arrayData.map((jobData) => ({
+        top: 1,
+        left: 1,
+        width: 1000 / techs.length,
+        workOrderNumber: jobData.workOrderNumber,
+        customerName: jobData.customerName,
+        jobDescription: jobData.jobDescription,
+        height: jobData.jobLength,
+        promiseTime: jobData.promiseTime,
+      }));
+    };
+    setBoxes(jobBoxData(unassignedJobsArray));
+  }, [unassignedJobsArray]);
 
-  jobBoxData(unassignedJobsArray);
-
-  console.log("jobBoxData", jobBoxData);
   console.log("boxes", boxes);
 
   // This determines how the boxes move
