@@ -20,15 +20,14 @@ for (let i = startTime; i < endTime - 0.1; i += 0.1) {
 }
 
 export const TechGrid = ({ snapToGrid, unassignedJobs }) => {
-
   const unassignedJobsArray = unassignedJobs.unassignedJobs;
   console.log("UnassignedJobsArray in TechGrid", unassignedJobsArray);
 
   const [boxes, setBoxes] = useState([]);
 
-  const jobBoxes = unassignedJobsArray.map(
+  const jobBoxData = unassignedJobsArray.map(
     (jobData) =>
-      jobData = {
+      (jobData = {
         top: 1,
         left: 1,
         width: 1000 / techs.length,
@@ -37,12 +36,11 @@ export const TechGrid = ({ snapToGrid, unassignedJobs }) => {
         jobDescription: jobData.jobDescription,
         height: jobData.jobLength,
         promiseTime: jobData.promiseTime,
-      });
-
-  console.log("jobBoxes", jobBoxes)
-
-
-  console.log("Boxes", boxes);
+      })
+  );
+  
+  console.log("jobBoxData", jobBoxData);
+  console.log("boxes", boxes);
 
   // This determines how the boxes move
   const moveBox = useCallback(
