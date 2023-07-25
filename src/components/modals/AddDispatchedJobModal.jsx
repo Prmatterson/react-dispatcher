@@ -5,7 +5,6 @@ import { ControlledFormInputText } from "./ControlledFormInputText";
 export function AddDispatchedJobModal({ show, setShow }) {
   const { handleSubmit, control, reset } = useForm();
 
-
   const onSubmit = (data) => {
     console.log(data);
     handleClose();
