@@ -25,19 +25,26 @@ export const TechGrid = ({ snapToGrid, unassignedJobs }) => {
 
   const [boxes, setBoxes] = useState([]);
 
-  const jobBoxData = unassignedJobsArray.map(
-    (jobData) =>
-      jobData = {
-        top: 1,
-        left: 1,
-        width: 1000 / techs.length,
-        workOrderNumber: jobData.workOrderNumber,
-        customerName: jobData.customerName,
-        jobDescription: jobData.jobDescription,
-        height: jobData.jobLength,
-        promiseTime: jobData.promiseTime,
-      }
-  );
+  const jobBoxData = (unassignedJobsArray) => {
+    setBoxes([
+      boxes,
+      unassignedJobsArray.map(
+        (jobData) =>
+          (jobData = {
+            top: 1,
+            left: 1,
+            width: 1000 / techs.length,
+            workOrderNumber: jobData.workOrderNumber,
+            customerName: jobData.customerName,
+            jobDescription: jobData.jobDescription,
+            height: jobData.jobLength,
+            promiseTime: jobData.promiseTime,
+          })
+      ),
+    ]);
+  };
+
+  jobBoxData(unassignedJobsArray);
 
   console.log("jobBoxData", jobBoxData);
   console.log("boxes", boxes);
