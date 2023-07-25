@@ -27,7 +27,7 @@ export const TechGrid = ({ snapToGrid, unassignedJobs }) => {
 
   const jobBoxData = unassignedJobsArray.map(
     (jobData) =>
-      (jobData = {
+      jobData = {
         top: 1,
         left: 1,
         width: 1000 / techs.length,
@@ -36,9 +36,9 @@ export const TechGrid = ({ snapToGrid, unassignedJobs }) => {
         jobDescription: jobData.jobDescription,
         height: jobData.jobLength,
         promiseTime: jobData.promiseTime,
-      })
+      }
   );
-  
+
   console.log("jobBoxData", jobBoxData);
   console.log("boxes", boxes);
 
